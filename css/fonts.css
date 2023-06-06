@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Neue Haas Grotesk Display';
-    src: url('NeueHaasGroteskDisplay-BlkIt.ttf') format('truetype');
+    src: url('fonts/NeueHaasGroteskDisplay-BlkIt.ttf') format('truetype');
     font-weight: 900;
     font-style: italic;
     font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: 'Neue Haas Grotesk Display';
-    src: url('NeueHaasGroteskDisplay-Bold.ttf') format('truetype');
+    src: url('fonts/NeueHaasGroteskDisplay-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
     font-family: 'Neue Haas Grotesk Display';
-    src: url('NeueHaasGroteskDisplay-ExLtIt.ttf') format('truetype');
+    src: url('fonts/NeueHaasGroteskDisplay-ExLtIt.ttf') format('truetype');
     font-weight: 200;
     font-style: italic;
     font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
     font-family: 'Neue Haas Grotesk Display';
-    src: url('NeueHaasGroteskDisplay-Black.ttf') format('truetype');
+    src: url('fonts/NeueHaasGroteskDisplay-Black.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
     font-display: swap;
@@ -32,7 +32,7 @@
 
 @font-face {
     font-family: 'Neue Haas Grotesk Display';
-    src: url('NeueHaasGroteskDisplay-ExtLt.ttf') format('truetype');
+    src: url('fonts/NeueHaasGroteskDisplay-ExtLt.ttf') format('truetype');
     font-weight: 200;
     font-style: normal;
     font-display: swap;
@@ -40,7 +40,7 @@
 
 @font-face {
     font-family: 'Neue Haas Grotesk Display';
-    src: url('NeueHaasGroteskDisplay-BdIt.ttf') format('truetype');
+    src: url('fonts/NeueHaasGroteskDisplay-BdIt.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
     font-display: swap;
@@ -48,7 +48,7 @@
 
 @font-face {
     font-family: 'Neue Haas Grotesk Display';
-    src: url('NeueHaasGroteskDisplay-Thin.ttf') format('truetype');
+    src: url('fonts/NeueHaasGroteskDisplay-Thin.ttf') format('truetype');
     font-weight: 100;
     font-style: normal;
     font-display: swap;
@@ -56,7 +56,7 @@
 
 @font-face {
     font-family: 'Neue Haas Grotesk Display';
-    src: url('NeueHaasGroteskDisplay-Reg.ttf') format('truetype');
+    src: url('fonts/NeueHaasGroteskDisplay-Reg.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -64,7 +64,7 @@
 
 @font-face {
     font-family: 'Neue Haas Grotesk Display';
-    src: url('NeueHaasGroteskDisplay-Light.ttf') format('truetype');
+    src: url('fonts/NeueHaasGroteskDisplay-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -72,7 +72,7 @@
 
 @font-face {
     font-family: 'Neue Haas Grotesk Display';
-    src: url('NeueHaasGroteskDisplay-SemLt.ttf') format('truetype');
+    src: url('fonts/NeueHaasGroteskDisplay-SemLt.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -80,7 +80,7 @@
 
 @font-face {
     font-family: 'Neue Haas Grotesk Display';
-    src: url('NeueHaasGroteskDisplay-ThIt.ttf') format('truetype');
+    src: url('fonts/NeueHaasGroteskDisplay-ThIt.ttf') format('truetype');
     font-weight: 100;
     font-style: italic;
     font-display: swap;
@@ -88,7 +88,7 @@
 
 @font-face {
     font-family: 'Neue Haas Grotesk Display';
-    src: url('NeueHaasGroteskDisplay-MedIta.ttf') format('truetype');
+    src: url('fonts/NeueHaasGroteskDisplay-MedIta.ttf') format('truetype');
     font-weight: 500;
     font-style: italic;
     font-display: swap;
@@ -96,7 +96,7 @@
 
 @font-face {
     font-family: 'Neue Haas Grotesk Display';
-    src: url('NeueHaasGroteskDisplay-Medium.ttf') format('truetype');
+    src: url('fonts/NeueHaasGroteskDisplay-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -104,7 +104,7 @@
 
 @font-face {
     font-family: 'Neue Haas Grotesk Display';
-    src: url('NeueHaasGroteskDisplay-Italic.ttf') format('truetype');
+    src: url('fonts/NeueHaasGroteskDisplay-Italic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
     font-display: swap;
@@ -112,7 +112,7 @@
 
 @font-face {
     font-family: 'Neue Haas Grotesk Display';
-    src: url('NeueHaasGroteskDisplay-LtIt.ttf') format('truetype');
+    src: url('fonts/NeueHaasGroteskDisplay-LtIt.ttf') format('truetype');
     font-weight: 300;
     font-style: italic;
     font-display: swap;
@@ -120,7 +120,7 @@
 
 @font-face {
     font-family: 'Neue Haas Grotesk Display';
-    src: url('NeueHaasGroteskDisplay-SmLtIt.ttf') format('truetype');
+    src: url('fonts/NeueHaasGroteskDisplay-SmLtIt.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
     font-display: swap;
