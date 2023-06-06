@@ -1,4 +1,5 @@
 @import url("fonts.css");
+
 /* General */
 html {
   scroll-behavior: smooth;
@@ -143,7 +144,7 @@ header .header-logo a:hover {
   padding-top: 40vh;
   position: center;
   text-transform: uppercase;
-  margin-bottom: 9vh;
+  margin-bottom: 13vh;
 }
 
 .home-content h2 {
@@ -203,39 +204,51 @@ header .header-logo a:hover {
   width: auto;
   height: 100%;
   text-align: left;
-  margin: 10% 10vh 0 10vh;
+  margin: 8% 10vh 0 10vh;
 }
 
 .have-a-look {
-  padding-top: 10%;
-  font-size: 5rem;
+  padding-top: 5vw;
+  font-size: 5vw;
+  text-align: center;
 }
 
-/* CSS Grid */
-.grid-container {
-  margin-top: 8vh;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 30px;
-  align-items: center;
+#bubble {
+  width: auto;
+  height: auto;
+  margin: 3vw 0 2vw 0;
+  padding: 0 20vw 0 20vw;
+  text-align: center;
 }
 
-/* List Styles */
-.project-list {
-  list-style-type: none;
-  padding: 0;
-  line-height: 2.5rem;
-}
-
-.project-list h2 {
-  margin-top: 1.2rem;
-}
-
-.project-list li {
+/* Style the buttons */
+.btn {
+  border: 2px solid black;
+  border-radius: 60px;
+  margin: 0.2vw;
+  background-color: white;
   cursor: pointer;
+  font-size: 1.2vw;
+  list-style-type: none;
+}
+
+.btn:hover {
+  color: white;
+  background-color:black;
+  transition: 0.3s;
+}
+
+.btn:hover a:hover {
+  color: white;
 }
 
 /* Image Styles */
+.image-container {
+  padding: 0 10vw 0 10vw;
+  width: auto;
+  height: auto;
+  background-color: #000000;
+}
 .image-container img {
   max-width: 100%;
 }
@@ -320,11 +333,11 @@ header .header-logo a:hover {
 }
 
 #contacts {
-  margin: 1vh 10vh 5vh 10vh;
+  margin: 4vh 10vh 5vh 10vh;
 }
 
 #contacts h2 {
-  font-size: 5rem;
+  font-size: 6vw;
 }
 
 @media only screen and (max-width: 768px){
