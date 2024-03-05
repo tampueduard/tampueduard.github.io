@@ -12,7 +12,7 @@ body {
   background: #ffffff;
   font-family: "Neue Haas Grotesk Display Pro", sans-serif;
   font-weight: normal;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #000000;
   animation: fadeInAnimation ease 0.5s;
   animation-iteration-count: 1;
@@ -175,7 +175,7 @@ img {
 
 .top video {
   display: block;
-  width: 58%;
+  width: 50%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -186,7 +186,8 @@ img {
   /* grid-template-columns: 1fr 2.3fr 1.7fr; */
   position: relative;
   padding: 2%;
-  padding-top: 0%;
+  padding-top: 3%;
+  padding-bottom: 5%;
   float: left;
 }
 
