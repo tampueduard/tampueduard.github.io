@@ -14,7 +14,7 @@ body {
   background: #ffffff;
   font-family: "Neue Haas Grotesk Display Pro", sans-serif;
   font-weight: normal;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #000000;
   animation: fadeInAnimation ease 0.5s;
   animation-iteration-count: 1;
@@ -128,7 +128,7 @@ img {
   bottom: 2%;
   justify-content: center;
   display: grid;
-  grid-template-columns: 0.6fr 0.27fr 0.9fr 1fr 0.8fr 0.8fr 1fr 0.8fr 01fr 1fr;
+  grid-template-columns: 0.6fr 0.2fr 0.8fr 0.7fr 1fr 0.8fr 0.7fr 0.8fr 0.8fr 0.2fr;
 }
 
 /* 
@@ -184,13 +184,15 @@ img {
 
 .work-info {
   display: grid;
-  grid-template-columns: 1fr 1fr 1.5fr 0.03fr 1.5fr;
+  grid-template-columns: 0.5fr 0.2fr 1fr 1fr 1.5fr;
   /* grid-template-columns: 1fr 2.3fr 1.7fr; */
   position: relative;
-  padding: 2%;
-  padding-top: 3%;
-  padding-bottom: 5%;
+  padding-left: 15%;
   float: left;
+}
+
+.work-info body {
+  margin-top: 0%;
 }
 
 .title {
@@ -233,12 +235,12 @@ img {
 }
 
 iframe {
-  padding: 2%;
-  margin-left: auto;
+  padding: 5%;
+  /* margin-left: auto;
   margin-right: auto;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 
 /* work - mobile */
