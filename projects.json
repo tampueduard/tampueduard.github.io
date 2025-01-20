@@ -102,7 +102,7 @@
             },
             {
                 "type": "video",
-                "src": "images/paradosso/paradosso.mp4"
+                "src": "https://github.com/tampueduard/tampueduard.github.io/raw/refs/heads/main/images/paradosso/paradosso.mp4"
             }
         ]
     },
@@ -167,7 +167,7 @@
             },
             {
                 "type": "video",
-                "src": "images/venaria/venaria_withmusic.mp4"
+                "src": "https://github.com/tampueduard/tampueduard.github.io/raw/refs/heads/main/images/venaria/room_venaria.mp4"
             }
         ]
     },
