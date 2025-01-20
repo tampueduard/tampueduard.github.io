@@ -1,0 +1,370 @@
+[
+    {
+        "id": "halfway",
+        "title": "Halfway",
+        "type": "Music Production",
+        "typeDetails": "Impro with Bruno Fabrizio Sorba",
+        "year": "2024",
+        "month": "1",
+        "contentFile": "content/halfway.md",
+        "mainMedia": [
+            {
+                "type": "spotify",
+                "src": "https://open.spotify.com/embed/album/6JkfJSpTUL0B9jm8QTAB5w?utm_source=generator&theme=0"
+            }
+        ],
+        "media": [
+            {
+                "type": "video",
+                "src": "images/halfway/social_1.mp4"
+            },
+            {
+                "type": "video",
+                "src": "images/halfway/social_2.mp4"
+            }
+        ]
+    },
+    {
+        "id": "thesoundmemoryoftheruff",
+        "title": "The Sound Memory of the Ruff",
+        "type": "Music, Sound Design and Foley",
+        "year": "2024",
+        "month": "2",
+        "contentFile": "content/soundoftheruff.md",
+        "mainMedia": [
+            {
+                "type": "video",
+                "src": "https://aaltodoc.aalto.fi/server/api/core/bitstreams/556e6511-e359-4c27-a4a4-e57a04e123a0/content"
+            }
+        ],
+        "media": [
+            {
+                "type": "image",
+                "src": "images/soundoftheruff/soundoftheruff_1.jpg"
+            },
+            {
+                "type": "image",
+                "src": "images/soundoftheruff/soundoftheruff_2.jpg"
+            },
+            {
+                "type": "image",
+                "src": "images/soundoftheruff/soundoftheruff_3.jpg"
+            },
+            {
+                "type": "image",
+                "src": "images/soundoftheruff/soundoftheruff_4.jpg"
+            },
+            {
+                "type": "image",
+                "src": "images/soundoftheruff/soundoftheruff_5.jpg"
+            },
+            {
+                "type": "image",
+                "src": "images/soundoftheruff/soundoftheruff_6.jpg"
+            }
+        ]
+    },
+    {
+        "id": "paradosso",
+        "title": "Paradosso",
+        "type": "Composition",
+        "typeDetails": "For Alto Saxophones, Live Electronics, and Active Acoustic Enhancement",
+        "year": "2024",
+        "month": "12",
+        "contentFile": "content/paradosso.md",
+        "link": "",
+        "mainMedia": [
+            {
+                "type": "youtube",
+                "src": "https://www.youtube.com/embed/9yNQbnhjIkk?si=gYupU1TxU2FTpJD9"
+            }
+        ],
+        "media": [
+            {
+                "type": "image",
+                "src": "images/paradosso/makenoise.svg"
+            },
+            {
+                "type": "image",
+                "src": "images/paradosso/paradosso_2.jpg"
+            },
+            {
+                "type": "image",
+                "src": "images/paradosso/paradosso_schematics.svg"
+            },
+            {
+                "type": "image",
+                "src": "images/paradosso/paradosso_1.jpg"
+            },
+            {
+                "type": "image",
+                "src": "images/paradosso/spectrograph.png"
+            },
+            {
+                "type": "video",
+                "src": "images/paradosso/paradosso.mp4"
+            }
+        ]
+    },
+    {
+        "id": "persineltempo",
+        "title": "Persi Nel Tempo",
+        "type": "Composition",
+        "typeDetails": "For Six Saxophones and Live Electronics",
+        "year": "2024",
+        "month": "4",
+        "contentFile": "content/persineltempo.md",
+        "media": [
+            {
+                "type": "image",
+                "src": "images/persi_nel_tempo/concert_1.png"
+            },
+            {
+                "type": "image",
+                "src": "images/persi_nel_tempo/score_1.svg"
+            },
+            {
+                "type": "image",
+                "src": "images/persi_nel_tempo/score_2.svg"
+            },
+            {
+                "type": "image",
+                "src": "images/persi_nel_tempo/concert_2.png"
+            },
+            {
+                "type": "image",
+                "src": "images/persi_nel_tempo/concert_3.png"
+            },
+            {
+                "type": "image",
+                "src": "images/persi_nel_tempo/schematics_1.svg"
+            },
+            {
+                "type": "image",
+                "src": "images/persi_nel_tempo/concert_4.png"
+            },
+            {
+                "type": "image",
+                "src": "images/persi_nel_tempo/score_4.svg"
+            },
+            {
+                "type": "image",
+                "src": "images/persi_nel_tempo/score_3.svg"
+            }
+        ]
+    },
+    {
+        "id": "lavenariareale",
+        "title": "La Venaria Reale",
+        "type": "Live Visuals and Sound",
+        "year": "2024",
+        "month": "7",
+        "contentFile": "content/venaria.md",
+        "media": [
+            {
+                "type": "video",
+                "src": "images/venaria/room_venaria.mp4"
+            },
+            {
+                "type": "video",
+                "src": "images/venaria/venaria_withmusic.mp4"
+            }
+        ]
+    },
+    {
+        "id": "minerva",
+        "title": "Minerva",
+        "type": "Music, Sound Design and Foley",
+        "year": "2023",
+        "month": "10",
+        "contentFile": "content/minerva.md",
+        "mainMedia": [
+            {
+                "type": "youtube",
+                "src": "https://www.youtube.com/embed/OTSe7MsJXbo?si=HFC5C3_ZPZRV0hyK"
+            }
+        ],
+        "media": [
+            {
+                "type": "image",
+                "src": "images/minerva/minerva.png"
+            }
+        ]
+    },
+    {
+        "id": "thehiddenharmony",
+        "title": "the Hidden Harmony",
+        "type": "Data Sonification",
+        "year": "2023",
+        "month": "6",
+        "contentFile": "content/thehiddenharmony.md",
+        "mainMedia": [
+            {
+                "type": "youtube",
+                "src": "https://www.youtube.com/embed/yyVGguCpWaw?si=iqjdEiPv2V9LIXhN"
+            }
+        ],
+        "media": [
+            {
+                "type": "image",
+                "src": "images/thehiddenharmony/poster-bag.png"
+            },
+            {
+                "type": "image",
+                "src": "images/thehiddenharmony/thehiddenharmony-3.jpeg"
+            },
+            {
+                "type": "image",
+                "src": "images/thehiddenharmony/thehiddenharmony-2.jpeg"
+            },
+            {
+                "type": "image",
+                "src": "images/thehiddenharmony/thehiddenharmony-1.jpeg"
+            },
+            {
+                "type": "image",
+                "src": "images/thehiddenharmony/thehiddenharmony-4.jpeg"
+            },
+            {
+                "type": "video",
+                "src": "images/thehiddenharmony/reel.mp4"
+            }
+        ]
+    },
+    {
+        "id": "naytos23",
+        "title": "Näytös2023",
+        "type": "Sound Design / Live performance",
+        "year": "2023",
+        "month": "5",
+        "contentFile": "content/naytos23.md",
+        "mainMedia": [
+            {
+                "type": "youtube",
+                "src": "https://www.youtube.com/embed/kpUpvVvKDYU?si=9ML0w2KhoeBpNZF8"
+            }
+        ],
+        "media": [
+            {
+                "type": "video",
+                "src": "images/naytos23/naytos23_vhs.mp4"
+            },
+            {
+                "type": "image",
+                "src": "images/naytos23/technical.png"
+            },
+            {
+                "type": "video",
+                "src": "images/naytos23/naytos23.webm"
+            }
+        ]
+    },
+    {
+        "id": "ääiaalto",
+        "title": "Spazi",
+        "type": "A/V Live performance",
+        "year": "2023",
+        "month": "9",
+        "content": "'Spazi' is an audiovisual performance in which I explore the relationships between sound and image and the limits of this two senses. An evolving internal conversation takes form into a minimal electronic expression. The intimate relationship between him, the audio signal and the visual realm is in this performance explored and presented as a physical experience that wants to fulfil the body of the viewer.",
+        "mainMedia": [
+            {
+                "type": "youtube",
+                "src":"https://player.vimeo.com/video/945895502?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            }
+        ],
+        "media": [
+            {
+                "type": "video",
+                "src": "images/spazi/reel.mp4"
+            }
+        ]
+    },
+    {
+        "id": "noisetonoise",
+        "title": "Noise to Noise",
+        "type": "Music, Sound Design",
+        "year": "2023",
+        "month": "3",
+        "contentFile": "content/noisetonoise.md",
+        "media": [
+            {
+                "type": "image",
+                "src": "images/noisetonoise/noisetonoise.png"
+            }
+        ]
+    },
+    {
+        "id": "luce",
+        "title": "Luce",
+        "type": "Musical Interface",
+        "year": "2022",
+        "contentFile": "content/luce.md", 
+        "mainMedia": [
+            {
+                "type": "video",
+                "src": "https://github.com/tampueduard/luce/blob/main/video/luce.mp4?raw=true"
+            }
+        ],
+        "media": [
+            {
+                "type": "image",
+                "src": "images/luce/poster.png"
+            },
+            {
+                "type": "image",
+                "src": "images/luce/max-patch.png"
+            },
+            {
+                "type": "image",
+                "src": "images/luce/prefboard_3.png"
+            },
+            {
+                "type": "image",
+                "src": "images/luce/process_1.png"
+            },
+            {
+                "type": "image",
+                "src": "images/luce/process_2.png"
+            },
+            {
+                "type": "image",
+                "src": "images/luce/scaling-process.gif"
+            }
+        ]
+    },
+    {
+        "id": "thereisnotenoughtime",
+        "title": "There is not enough time",
+        "type": "A/V Piece",
+        "year": "2021",
+        "contentFile": "content/thereisnotenoughtime.md",
+        "mainMedia": [
+            {
+                "type": "youtube",
+                "src": "https://www.youtube.com/embed/6z613kDzPEo?si=6FqWEAuFR_SlshyG"
+            }
+        ],
+        "media": [
+            {
+                "type": "video",
+                "src": "images/thereisnotenoughtime/007.webm"
+            },
+            {   
+                "type": "image",
+                "src": "images/thereisnotenoughtime/frame_1.jpeg"
+            },
+            {
+                "type": "image",
+                "src": "images/thereisnotenoughtime/frame_2.jpeg"
+            },
+            {
+                "type": "image",
+                "src": "images/thereisnotenoughtime/frame_3.jpeg"
+            },
+            {
+                "type": "image",
+                "src": "images/thereisnotenoughtime/frame_4.jpeg"
+            }
+        ]
+    }
+]

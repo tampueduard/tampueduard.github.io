@@ -1,0 +1,101 @@
+    {
+        "id": 7,
+        "title": "Graphic design",
+        "type": "Poster / Interactive visuals",
+        "year": "2018",
+        "link": "https://instagram.com/eddytampu_",
+        "media": [
+            {
+                "type": "video",
+                "src": "images/graphicdesign.webm"
+            },
+            {
+                "type": "image",
+                "src": "images/posters/001.png",
+                "excludeFromIndex": true
+            },
+            {
+                "type": "image",
+                "src": "images/posters/003.png",
+                "excludeFromIndex": true
+            },
+            {
+                "type": "image",
+                "src": "images/posters/008.png",
+                "excludeFromIndex": true
+            },
+            {
+                "type": "image",
+                "src": "images/posters/011.png",
+                "excludeFromIndex": true
+            },
+            {
+                "type": "image",
+                "src": "images/posters/013.png",
+                "excludeFromIndex": true
+            },
+            {
+                "type": "image",
+                "src": "images/posters/015.png",
+                "excludeFromIndex": true
+            },
+            {
+                "type": "image",
+                "src": "images/posters/016.png",
+                "excludeFromIndex": true
+            },
+            {
+                "type": "image",
+                "src": "images/posters/017.png",
+                "excludeFromIndex": true
+            },
+            {
+                "type": "image",
+                "src": "images/posters/018.png",
+                "excludeFromIndex": true
+            },
+            {
+                "type": "image",
+                "src": "images/posters/022.png",
+                "excludeFromIndex": true
+            },
+            {
+                "type": "image",
+                "src": "images/posters/024.png"
+            },
+            {
+                "type": "image",
+                "src": "images/posters/029.png"
+            },
+            {
+                "type": "image",
+                "src": "images/posters/031.png",
+                "excludeFromIndex": true
+            },
+            {
+                "type": "image",
+                "src": "images/posters/032.png",
+                "excludeFromIndex": true
+            },
+            {
+                "type": "image",
+                "src": "images/posters/035.png",
+                "excludeFromIndex": true
+            },
+            {
+                "type": "image",
+                "src": "images/posters/036.png",
+                "excludeFromIndex": true
+            },
+            {
+                "type": "image",
+                "src": "images/posters/039.png",
+                "excludeFromIndex": true
+            },
+            {
+                "type": "image",
+                "src": "images/posters/043.png",
+                "excludeFromIndex": true
+            }
+        ]
+    }

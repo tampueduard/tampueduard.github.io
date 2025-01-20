@@ -1,36 +1,64 @@
 @import url("../font/stylesheet.css");
-
+*{
+  box-sizing: border-box;
+}
 .desktop {
   display: block;
 }
 
-html {
-  scroll-behavior: smooth;
-  font-size: 100%;
-  -webkit-text-size-adjust: 100%;
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
+  width: 100%;
   background: #ffffff;
-  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
-  font-weight: normal;
-  font-size: 0.9rem;
+  /* font-family: 'Neue Montreal', sans-serif; */
+  font-family: 'Lausanne', sans-serif;
+  font-size: 0.9rem; 
   color: #000000;
   animation: fadeInAnimation ease 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  margin-bottom: 5vh;
-  scroll-behavior: smooth;
-  /* text-rendering: optimizeLegibility; */
+  overflow: auto;
+  box-sizing: border-box;
 }
 
 @keyframes fadeInAnimation {
   0% {
-    opacity: 0;
+      opacity: 0;
   }
-
   100% {
-    opacity: 1;
+      opacity: 1;
+  }
+}
+
+h1, h2, h3 {
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+/* Ensure minimum and maximum font sizes for better readability */
+@media (max-width: 768px) {
+  body {
+      font-size: 0.8rem; /* Responsive scaling for smaller screens */
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  /* Safari-specific adjustments */
+  body {
+      font-size: 1rem;
   }
 }
 
@@ -42,11 +70,16 @@ body {
 
 a,
 a:visited {
-  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
   color: #000000;
   text-decoration: none;
-  /* transition: all 0.3s ease-in-out; */
 }
+
+/* .row a {
+  text-transform: uppercase;
+  font-variant-caps: all-small-caps;
+  font-family: 'Karl Mono ST', monospace;
+  font-size: 1.4rem;
+} */
 
 a:hover,
 a:focus {
@@ -81,40 +114,122 @@ video {
   }
 }
 
-/* 
-    index 
-*/
-
 .header {
-  padding: 2%;
+  padding: 2% 2% 0% 2%;
+  padding-top: 5vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3; /* Ensure the header appears above other content */
+  padding-bottom: 1%;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 0.4fr 0.2fr 1.6fr 0.4fr 1fr 1fr 1fr;
-  justify-content: center;
+  grid-template-columns: 0.8fr 1.5fr 1fr 1fr;
+  justify-content: right;
   width: 100%;
 }
 
-.image-container {
-  display: none;
-  padding: 2% 0 0 0;
-  width: auto;
-  margin-top: auto;
-  margin-bottom: auto;
+.main-media {
+  display: flex;
+  justify-content: center; /* Center the media horizontally */
+  align-items: center; /* Center the media vertically */
 }
-.image-container video,
-img {
-  max-width: 75vh;
+
+.main-content {
+  display: flex;
+  padding: 2%;
+  height: calc(100vh - 21vh - 5vh); /* Adjust height to fit the viewport minus header height */
+  padding-bottom: 2%;  
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: left;
+  width: 50%; 
+  height: 94vh;
+  z-index: 2;
+  overflow: hidden;
+    /* border: 5px solid red; 
+  background-color: #bbb; */
+}
+
+.sidebar-item {
+  /* margin-top: 5px; */
+  width: 100%; /* Adjust the width as needed */
+  text-align: left; /* Center the text */
+}
+
+.sidebar-item a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.sidebar-item a:hover {
+  color: #ff9100;
+}
+
+.project-year.highlight {
+  color: #ff9100; /* Highlight color */
+}
+
+.main-media {
+  margin-bottom: 20px; /* Add some space between the main media and the project details */
 }
 
 #image-gallery {
-  display: relative;
-  text-align: center;
+  width: 100%; /* Remaining space beside the sidebar */
+  height: 100vh; /* Full height */
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center; /* Center the container horizontally */
+  background-color: white; /* Background for contrast */
+  position: fixed;
+  right: 0;
+  top: -5%;
+  z-index: -1; /* Lower z-index to stay in the background */
+  pointer-events: none; /* Allow scrolling through the image gallery */
 }
 
-#image-gallery video {
-  height: 50%;
+/* Inner 16:9 aspect ratio container */
+.image-container {
+  width: 60%; /* Full width of the gallery area */
+  /* max-width: calc(100vh * (16 / 9)); Maintain 16:9 aspect ratio */
+  position: relative;
+  background-color: white; /* Background behind images/videos */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  overflow: hidden;
+}
+
+.image-container::before {
+  content: '';
+  display: block;
+  padding-bottom: 56.25%; /* Fallback for 16:9 aspect ratio */
+}
+
+/* Media inside the gallery */
+.image-container video,
+.image-container img {
+  position: absolute;
+  max-width: 100%; /* Fit within the container horizontally */
+  max-height: 100%; /* Fit within the container vertically */
+  width: auto; /* Maintain aspect ratio */
+  height: auto; /* Maintain aspect ratio */
+}
+
+#gallery-image img.active, #gallery-image video.active {
+  opacity: 1;
+}
+
+#gallery-image img.active, #gallery-image video.active {
+  opacity: 1;
 }
 
 .footer:hover + .image-container {
@@ -123,202 +238,269 @@ img {
 
 .footer {
   width: 100%;
-  padding: 2%;
-  position: fixed;
-  bottom: 2%;
-  justify-content: center;
-  display: grid;
-  grid-template-columns: 0.6fr 0.2fr 0.55fr 0.7fr 0.8fr 0.6fr 0.5fr 0.6fr 0.7fr 0.2fr;
-}
-
-/* 
-      index - mobile   
-*/
-
-.header li {
-  display: inline-block;
-  position: fixed;
-}
-
-.information {
-  right: 4%;
-}
-
-.list {
-  margin-top: 20vh;
-  display: grid;
-  grid-template-columns: 0.2fr 1fr;
-  padding: 2%;
-  row-gap: 20px;
-}
-
-.copyright {
-  font-size: 0.7rem;
-  bottom: 1%;
+  padding-bottom: 2%;
   padding-left: 2%;
-  padding-top: 10vh;
-}
-
-/* 
-      works 
-*/
-
-.top {
-  padding: 2%;
-  align-items: center;
-  justify-content: center;
-}
-
-.top a {
+  padding-right: 2%;
+  left: 0;
   position: fixed;
-  /* background-color: #000000;
-  color: #ffffff; */
+  bottom: 0; /* Position the footer at the bottom */
+  text-align: right; /* Align text to the right */
+  z-index: 2; /* Higher z-index to appear above the background */
+  font-size: 0.8rem; /* Adjust font size for better readability */
+  pointer-events: none; /* Allow scrolling through the image gallery */
 }
 
-.top video {
-  display: block;
+.work-content { 
   width: 50%;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 8vh;
+  align-self: center;
+  padding: 2%;
+  padding-bottom: 60px; /* Add padding to avoid overlap with the footer */
+  min-height: 100vh; /* Ensure the main content takes up at least the full viewport height */
+  position: relative; /* Ensure the main content is positioned relative to the background */
+  z-index: 2; /* Higher z-index to appear above the background */
+  text-align: justify;
 }
 
-.work-info {
-  display: grid;
-  grid-template-columns: 0.5fr 0.2fr 1fr 1fr 1.5fr;
-  /* grid-template-columns: 1fr 2.3fr 1.7fr; */
+.work-content h1 {
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 3.5rem;
+  font-variant-caps: all-small-caps;
+}
+
+.work-content h2 {
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+
+.work-content p {
+  margin-bottom: 20px;
+}
+
+.work-content a {
+  color: #ff9100;
+  text-decoration: none;
+}
+
+.project-details {
+  margin-bottom: 20px; /* Add some space between the sections */
+}
+.project-details a:hover {
+  text-decoration: underline;
+}
+
+#main-media-container {
+  /* border: 2px solid red; Add a border for visibility */
+  display: block !important; /* Ensure it's displayed */
+  width: 100%;
+  height: auto;
+}
+
+/* Responsive iframe container */
+.responsive-iframe-container {
   position: relative;
-  padding-left: 15%;
-  float: left;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
 }
 
-.work-info body {
-  margin-top: 0%;
+/* Style the iframe to fit the container */
+.responsive-iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
-.title {
-  font-weight: 500;
+/* Responsive container for Spotify iframe */
+.responsive-spotify-container {
+  position: relative;
+  width: 100%; /* Full width of the parent */
+  padding-bottom: 56.25%; /* Maintain a 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
 }
 
-.description {
-  padding-top: 4%;
-  text-justify: distribute-all-lines;
-}
-
-.text span {
-  display: block;
-  margin: 10px 0;
-}
-
-.quote {
-  display: block;
-  margin: 10px 0;
-  /* padding: 0 50px 0 50px; */
+.responsive-spotify-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  border: none; /* Remove border */
 }
 
 .project-gallery {
-  position: relative;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-  justify-content: center;
-  /* background-color: #000000; */
+  display: grid;
+  margin-top: 40px; /* Add some space between the sections */
+  row-gap: 10px; /* Add some space between rows */
+  gap: 10px; /* Add some space between gallery items */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 50px; /* Space between items */
+  padding-bottom: 4%;
 }
 
-.project-gallery img {
-  max-width: 25%;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.gallery-item {
+  width: 100%;
+  display: absolute;
+  height: auto;
+  object-fit: contain; /* Ensure the entire image is visible */
+  align-self: center;
+  max-width: 100%; /* Ensure images do not exceed container width */
+  max-height: 100%; /* Ensure images do not exceed container height */
+}
+
+/* Style for videos */
+.gallery-item video {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  display: flex; /* Use Flexbox to center content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 2;
+}
+
+.modal-content {
+  width: 90vmax; /* Set width to 80% of the viewport minimum dimension */
+  height: 80vmin; /* Set height to 80% of the viewport minimum dimension */
+  max-width: 1000px; /* Maximum width */
+  max-height: 800px; /* Maximum height */
+  margin: auto;
+  display: flex; /* Use Flexbox to center content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-color: white;
+  padding: 40px; /* Add padding */
+  box-sizing: border-box; /* Include padding in width and height */
+  position: relative;
+  z-index: 3;
+}
+
+.modal-image, .modal-video {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  background-color: white;
+  z-index: 3;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: black;
+  font-size: 40px;
+  /* font-weight: bold; */
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  border: none;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.arrow.left {
+  left: -150px;
+}
+
+.arrow.right {
+  right: -150px;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+  .main-content {
+      flex-direction: column;
+  }
+
+  .project-details {
+      width: 100%; /* Full width for small screens */
+  }
+
+  .project-gallery {
+      width: 100%; /* Full width for small screens */
+  }
 }
 
 iframe {
   padding: 5%;
-  /* margin-left: auto;
-  margin-right: auto;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+#about-content {
+  width: 35%;
+  margin-left: 5%;
+  margin-top: 40vh;
   display: flex;
-  align-items: center;
-  justify-content: center; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  /* text-align: justify; */
+  box-sizing: border-box;
+  overflow: none;
+  align-self: right;
 }
 
-/* work - mobile */
-
-@media only screen and (max-width: 500px) {
-  .work-container {
-    position: fixed;
-    width: fit-content;
-    right: 0%;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .video video {
-    display: block;
-    width: 96%;
-    height: auto;
-    padding: 0px;
-    margin: 0px;
-    margin-top: 25%;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .work-info {
-    display: inline-block;
-    position: fixed;
-    width: 80%;
-    bottom: 11%;
-  }
-  .to-link {
-    margin-top: 10px;
-  }
-
-  .work-info .copyright {
-    font-size: 0.7rem;
-    display: inline-block;
-    position: fixed;
-    bottom: 2%;
-    padding-left: 2%;
-  }
+.side-image {
+  margin-left: 15%;
+  display: flex;
+  align-items: center; /* Center the image vertically within the side-image container */
+  justify-content: center; /* Center the image horizontally within the side-image container */
 }
 
-/* info - mobile */
-.info {
-  position: fixed;
-  margin-top: 25%;
-  width: 96%;
+.portrait {
+  width: 80%;
+  max-width: 30vw; /* Adjust the size as needed */
+  margin: auto;
 }
 
-.info img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.mobile-message {
+  display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 20px;
+  background-color: white;
 }
-
-.info .text {
-  width: 70%;
-  padding: 2%;
-  margin-top: 20%;
-}
-
-.info .copyright {
-  font-size: 0.7rem;
-  display: inline-block;
-  position: fixed;
-  bottom: 2%;
-  padding-left: 2%;
-}
-
-.info a {
-  padding-left: 5%;
-}
-

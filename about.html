@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/eduardtampu_icon.gif">
+    <link rel="stylesheet" href="css/main.css">
+    <title>about / eduardtampu</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <!-- Main Content -->
+    <div class="header" style="display: flex; justify-content: left; text-align: left;">
+        <div class="row" style="flex: 2;">eduardtampu</div>
+        <div class="row" style="text-align: right; flex: 1;"><a href="index.html">close</a></div>
+    </div>
+
+    <div class="main-content">
+        <div id="about-content"></div>
+        <!-- <div class="side-image">
+            <img src="images/eduardtampu_portrait2024.jpg" alt="Portrait of Eduard Tampu" class="portrait">
+        </div> -->
+    </div>
+
+    <!-- <div class="footer" style="justify-content: left; text-align: left;">More at eduardtampu [at] gmail [dot] com</div> -->
+    <div class="footer">© 2025</div>
+
+    <script>
+        fetch('content/about.md')
+            .then(response => response.text())
+            .then(markdown => {
+                document.getElementById('about-content').innerHTML = marked.parse(markdown);
+            })
+            .catch(error => {
+                console.error('Error loading Markdown file:', error);
+                document.getElementById('about-content').textContent = 'Failed to load content.';
+            });
+    </script>
+</body>
+
+</html>
