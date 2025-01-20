@@ -163,11 +163,11 @@
         "media": [
             {
                 "type": "video",
-                "src": "images/venaria/room_venaria.mp4"
+                "src": "https://github.com/tampueduard/tampueduard.github.io/raw/refs/heads/main/images/venaria/room_venaria.mp4"
             },
             {
                 "type": "video",
-                "src": "https://github.com/tampueduard/tampueduard.github.io/raw/refs/heads/main/images/venaria/room_venaria.mp4"
+                "src": "https://github.com/tampueduard/tampueduard.github.io/raw/refs/heads/main/images/venaria/venaria_withmusic.mp4"
             }
         ]
     },
