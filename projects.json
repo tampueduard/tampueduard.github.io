@@ -160,11 +160,13 @@
         "year": "2024",
         "month": "7",
         "contentFile": "content/venaria.md",
-        "media": [
+        "mainMedia": [
             {
-                "type": "video",
-                "src": "https://github.com/tampueduard/tampueduard.github.io/raw/refs/heads/main/images/venaria/room_venaria.mp4"
-            },
+                "type": "google-drive-video",
+                "src": "https://drive.google.com/file/d/1cdq7WcFC8LwtJWlF1YLvbqr0BSs9juX5/preview"
+            }
+        ],
+        "media": [
             {
                 "type": "video",
                 "src": "https://github.com/tampueduard/tampueduard.github.io/raw/refs/heads/main/images/venaria/venaria_withmusic.mp4"
@@ -188,6 +190,33 @@
             {
                 "type": "image",
                 "src": "images/minerva/minerva.png"
+            }
+        ]
+    },
+    {
+        "id": "minerva_datasonification",
+        "title": "The sound of Roman Roads",
+        "type": "Data Sonification",
+        "typeDetails": "In collaboration with projcet Minerva",
+        "year": "2023",
+        "month": "10",
+        "contentFile": "content/minerva_datasonification.md",
+        "mainMedia": [
+            {
+                "type": "google-drive-video",
+                "src": "https://drive.google.com/file/d/18DbvMLDusBywMBo5E_nqxWFpThdoIYKy/preview"
+            }
+        ],
+        "media": [
+            {
+                "type": "image",
+                "src": "images/minerva_sonification/datasonification_minerva_1.svg",
+                "exclude": 1
+            },
+            {
+                "type": "image",
+                "src": "images/minerva_sonification/datasonification_minerva_2.svg",
+                "exclude": 1
             }
         ]
     },
@@ -247,15 +276,15 @@
         "media": [
             {
                 "type": "video",
+                "src": "images/naytos23/naytos23.webm"
+            },
+            {
+                "type": "video",
                 "src": "https://github.com/tampueduard/tampueduard.github.io/raw/refs/heads/main/images/naytos23/naytos23_vhs.mp4"
             },
             {
                 "type": "image",
                 "src": "images/naytos23/technical.png"
-            },
-            {
-                "type": "video",
-                "src": "images/naytos23/naytos23.webm"
             }
         ]
     },

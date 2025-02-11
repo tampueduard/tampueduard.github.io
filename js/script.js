@@ -93,18 +93,34 @@ function startSlideshow(index) {
           currentMediaIndex = (currentMediaIndex + 1) % mediaItems.length;
           showCurrentMedia();
         }, 2500);
-      } else if (item.type === 'video') {
+        // Check if the media type is a standard video file (mp4/webm)
+      } else if (item.type === 'video' && !item.src.includes("drive.google.com")) {
         const fileExtension = item.src.split('.').pop();
         const mimeType = fileExtension === 'webm' ? 'video/webm' : 'video/mp4';
         gallery.innerHTML = `<video autoplay muted class="active">
-          <source src="${item.src}" type="${mimeType}">
-          Your browser does not support the video tag.
-        </video>`;
+      <source src="${item.src}" type="${mimeType}">
+      Your browser does not support the video tag.
+    </video>`;
+
         const videoElement = gallery.querySelector('video');
         videoElement.addEventListener('ended', () => {
           currentMediaIndex = (currentMediaIndex + 1) % mediaItems.length;
           showCurrentMedia();
         });
+        clearInterval(slideshowInterval);
+
+        // Check if the media type is a Google Drive video (iframe embed)
+      } else if (item.type === 'google-drive-video') {
+        gallery.innerHTML = `
+      <iframe class="google-drive-video active"
+              src="${item.src}" 
+              width="auto" 
+              height="auto"
+              allow="autoplay"
+              frameborder="0"
+              sandbox="allow-top-navigation allow-scripts allow-forms"
+              allowfullscreen>
+      </iframe>`;
         clearInterval(slideshowInterval);
       }
     };
@@ -134,11 +150,11 @@ if (projectDetails) {
   });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const imageGallery = document.getElementById('image-gallery');
   const projectSection = document.querySelector('.sidebar');
 
-  window.addEventListener('scroll', function() {
+  window.addEventListener('scroll', function () {
     const projectSectionTop = projectSection.getBoundingClientRect().top;
     const headerHeight = document.querySelector('.header').offsetHeight;
 
@@ -150,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const imageGallery = document.getElementById('gallery-image');
   let images = [];
   let slideshowInterval;
@@ -194,13 +210,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Add hover event listeners to project elements
   const projectList = document.getElementById('project-list');
-  projectList.addEventListener('mouseover', function(event) {
+  projectList.addEventListener('mouseover', function (event) {
     if (event.target.closest('.sidebar-item')) {
       stopSlideshow();
     }
   });
 
-  projectList.addEventListener('mouseout', function(event) {
+  projectList.addEventListener('mouseout', function (event) {
     if (event.target.closest('.sidebar-item')) {
       // Optionally, you can restart the slideshow when the mouse leaves the project
       // slideshowInterval = setInterval(showRandomImage, 3000);
