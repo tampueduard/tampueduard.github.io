@@ -257,6 +257,10 @@
             {
                 "type": "video",
                 "src": "images/thehiddenharmony/reel.mp4"
+            },
+            {
+                "type": "google-drive-video",
+                "src": "https://drive.google.com/file/d/1kCtUPskHd5wxYATzQuWfblC9UP-4IwzS/preview"
             }
         ]
     },
@@ -393,6 +397,33 @@
             {
                 "type": "image",
                 "src": "images/thereisnotenoughtime/frame_4.jpeg"
+            }
+        ]
+    },
+    {
+        "id": "birds",
+        "title": "Birds",
+        "type": "Experimental Music / Visuals",
+        "year": "2021",
+        "content": "From a study series, Birds is a live performance that has as source materials live audio coming from the environment, and the result is obtained through a 'chaotic feedback' process, controlled in real time. The visuals are generated through TouchDesigner",
+        "mainMedia": [
+            {
+                "type": "youtube",
+                "src": "https://drive.google.com/file/d/12mPcWASm4Z5uH_DkZtSw7Z4fvnaaIdO3/preview"
+            }
+        ],
+        "media": [
+            {
+                "type": "image",
+                "src": "images/birds/visual_1.png"
+            },
+            {
+                "type": "image",
+                "src": "images/birds/visual_2.png"
+            },
+            {
+                "type": "image",
+                "src": "images/birds/visual_3.png"
             }
         ]
     }
