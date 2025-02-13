@@ -114,6 +114,12 @@
         "year": "2024",
         "month": "4",
         "contentFile": "content/persineltempo.md",
+        "mainMedia": [
+            {
+                "type": "youtube",
+                "src": "https://drive.google.com/file/d/1guxE6z6Y4Ny9ZA5k1qS2ngsd0Eu-ckHW/preview"
+            }
+        ],
         "media": [
             {
                 "type": "image",
