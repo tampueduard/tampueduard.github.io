@@ -21,7 +21,7 @@ body {
   background: #ffffff;
   /* font-family: 'Neue Montreal', sans-serif; */
   font-family: 'Lausanne', sans-serif;
-  font-size: 1rem; 
+  font-size: 0.9rem; 
   color: #000000;
   animation: fadeInAnimation ease 0.5s;
   animation-iteration-count: 1;
