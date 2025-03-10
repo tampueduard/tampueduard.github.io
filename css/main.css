@@ -22,6 +22,7 @@ body {
   background: #ffffff;
   /* font-family: 'Neue Montreal', sans-serif; */
   font-family: 'Lausanne', sans-serif;
+  font-size: 0.9rem; 
   color: #000000;
   animation: fadeInAnimation ease 0.5s;
   animation-iteration-count: 1;
@@ -58,7 +59,7 @@ h3 {
 @supports (-webkit-touch-callout: none) {
   /* Safari-specific adjustments */
   body {
-      font-size: 0.9rem;
+      font-size: 1rem;
   }
 }
 
