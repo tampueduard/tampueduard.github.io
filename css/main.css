@@ -11,6 +11,7 @@ html, body {
   margin: 0;
   display: flex;
   flex-direction: column;
+  font-size: 1.35vh; /* Adjusts size relative to viewport width */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -21,7 +22,6 @@ body {
   background: #ffffff;
   /* font-family: 'Neue Montreal', sans-serif; */
   font-family: 'Lausanne', sans-serif;
-  font-size: 1rem; 
   color: #000000;
   animation: fadeInAnimation ease 0.5s;
   animation-iteration-count: 1;
@@ -58,7 +58,7 @@ h3 {
 @supports (-webkit-touch-callout: none) {
   /* Safari-specific adjustments */
   body {
-      font-size: 1.1rem;
+      font-size: 0.9rem;
   }
 }
 
