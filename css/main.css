@@ -58,7 +58,7 @@ h3 {
 @supports (-webkit-touch-callout: none) {
   /* Safari-specific adjustments */
   body {
-      font-size: 1.1rem;
+      font-size: 0.9rem;
   }
 }
 
