@@ -432,5 +432,38 @@
                 "src": "images/birds/visual_3.png"
             }
         ]
+    },
+    {
+        "id": "VK2025",
+        "title": "VK2025",
+        "type": "Sound Design",
+        "year": "2025",
+        "contentFile": "content/vk2025.md",
+        "media": [
+            {
+                "type":"video",
+                "src": "images/vk25/vk25_ai.mp4"
+            },
+            {
+                "type":"video",
+                "src": "images/vk25/vk25_complexity.mp4"
+            },
+            {
+                "type":"video",
+                "src": "images/vk25/vk25_nature.mp4"
+            },
+            {
+                "type":"video",
+                "src": "images/vk25/vk25_law.mp4"
+            },
+            {
+                "type":"video",
+                "src": "images/vk25/vk25_brakemusic.mp4"
+            },
+            {
+                "type":"video",
+                "src": "images/vk25/vk25_firstideas.mp4"
+            }
+        ]
     }
 ]
