@@ -16,17 +16,18 @@
     <!-- Main Content -->
     <div class="header" style="display: flex; justify-content: left; text-align: left;">
         <div class="row" style="flex: 2;">eduardtampu</div>
-        <div class="row" style="text-align: right; flex: 1;"><a href="index.html">close</a></div>
+        <!-- <div class="column" style="text-align: right; flex: 0.3;"><a href="index.html">close</a></div> -->
     </div>
 
     <div class="main-content">
-        <div id="about-content"></div>
-        <!-- <div class="side-image">
-            <img src="images/eduardtampu_portrait2024.jpg" alt="Portrait of Eduard Tampu" class="portrait">
-        </div> -->
+        <div class="side-image">
+            <img src="images/eduardtampu_2025.png" alt="Portrait of Eduard Tampu" class="portrait">
+        </div>
+        <div id="about-content">
+            Loading /... 
+        </div>        
     </div>
-
-    <!-- <div class="footer" style="justify-content: left; text-align: left;">More at eduardtampu [at] gmail [dot] com</div> -->
+    <a href="mailto:tampueduard@gmail.com" class="footer" style="justify-content: left; text-align: left;"> email ▪ tampueduard [at] gmail [dot] com</a>  
     <div class="footer">© 2025</div>
 
     <script>
@@ -34,6 +35,7 @@
             .then(response => response.text())
             .then(markdown => {
                 document.getElementById('about-content').innerHTML = marked.parse(markdown);
+            
             })
             .catch(error => {
                 console.error('Error loading Markdown file:', error);

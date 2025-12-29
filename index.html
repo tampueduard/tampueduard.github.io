@@ -14,25 +14,17 @@
 
 <body>
 
-    <!-- Mobile Message -->
-    <div id="mobile-message" class="mobile-message" style="display: none; text-align: center; margin: auto;">
-        Sorry, mobile version still under construction. Please visit the website from your desktop.
-        <p>
-        If you are looking for something, you can contact me at <a href="mailto:tampueduard@gmail.com">tampueduard [at] gmail [dot] com</a>
-    </div>
-
-    <div id="desktop-content" style="display: none;">
+    <div id="desktop-content">
         <!-- Main Content -->
-    <div class="header" style="display: flex;">
-        <div class="row" style="flex: 1;">eduardtampu</div>
+    <div class="header">
+        <div class="row title" style="flex: 1;">eduardtampu</div>
         <div class="row" style="text-align: left; flex: 2;">
             composer ▪ performer ▪ new media artist
         </div>
         <div class="row" style="text-align: left; flex: 3;"></div>
         <div class="row" style="text-align: left; flex: 3;"></div>
-        <div class="column" style="text-align: right; flex: 0.3;">
-            <a href="about.html">about</a><br>
-            <a href="contact.html">contact</a>
+        <div class="column" style="text-align: right;">
+            <a href="about.html">about</a> ▪ <a href="contact.html">contact</a>
         </div>
 
     </div>
@@ -52,15 +44,6 @@
         <div class="row footer">© 2025</div>
     </div>
 
-
-        <script>
-            // Detect if the screen width is less than or equal to 768px (mobile devices)
-            if (window.innerWidth <= 768) {
-                document.getElementById('mobile-message').style.display = 'block';
-            } else {
-                document.getElementById('desktop-content').style.display = 'block';
-            }
-        </script>
 </body>
 
 </html>

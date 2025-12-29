@@ -52,7 +52,7 @@ h3 {
 /* Ensure minimum and maximum font sizes for better readability */
 @media (max-width: 768px) {
   body {
-      font-size: 0.8rem; /* Responsive scaling for smaller screens */
+      font-size: 1.1rem; /* Responsive scaling for smaller screens */
   }
 }
 
@@ -116,6 +116,7 @@ video {
 }
 
 .header {
+  display: flex;
   padding: 2% 2% 0% 2%;
   padding-top: 5vh;
   position: fixed;
@@ -247,7 +248,6 @@ video {
   bottom: 0; /* Position the footer at the bottom */
   text-align: right; /* Align text to the right */
   z-index: 2; /* Higher z-index to appear above the background */
-  font-size: 0.8rem; /* Adjust font size for better readability */
   pointer-events: none; /* Allow scrolling through the image gallery */
 }
 
@@ -526,6 +526,8 @@ iframe {
   width: 80%;
   max-width: 30vw; /* Adjust the size as needed */
   margin: auto;
+  margin-top: 25%;
+  display: block;
 }
 
 .mobile-message {
@@ -561,4 +563,74 @@ iframe {
   text-decoration: none;
   font-size: 0.9em;
   margin-left: 5px;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+
+  .header {
+      position: relative;
+      flex-direction: row;
+      flex-wrap: wrap;
+      height: auto;
+      padding-bottom: 20px;
+  }
+
+  .header .row.title {
+      width: 100%;
+      flex: 0 0 100% !important;
+  }
+
+  .header .row, 
+  .header .column {
+      /* flex: 0 0 auto !important; Override inline flex styles */
+      width: auto;
+      text-align: left !important;
+      margin-top: 0;
+  }
+
+  .header .row:empty {
+      display: none;
+  }
+  
+  .main-content {
+      display: block;
+      height: auto;
+  }
+
+  .sidebar {
+      padding-top: 25vh;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+  }
+
+  #image-gallery {
+      display: none; /* Hide hover gallery on mobile */
+  }
+
+  .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0
+  }
+  .work-content {
+      width: 70%;
+      margin: auto;
+      padding-bottom: 80px; /* Extra padding for footer */
+  }
+
+  #about-content {
+      width: 80%;
+      margin: auto;
+  }
+
+  .portrait {
+  width: 100%;
+  max-width: 50vw; /* Adjust the size as needed */
+  margin: 0 0 0 0;
+  position: center;
+  padding: 0 0 0 0;
+}
+
 }
