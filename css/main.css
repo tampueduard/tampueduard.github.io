@@ -11,24 +11,47 @@ html, body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  font-size: 1.35vh; /* Adjusts size relative to viewport width */
+  font-size: 1vw; /* Adjusts size relative to viewport width */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  height: 100vh;
+  cursor:none!important
 }
 
 body {
   width: 100%;
-  background: #ffffff;
-  /* font-family: 'Neue Montreal', sans-serif; */
   font-family: 'Lausanne', sans-serif;
-  font-size: 0.9rem; 
   color: #000000;
+  font-weight: 300;
   animation: fadeInAnimation ease 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
   box-sizing: border-box;
+}
+
+a {
+  cursor: none !important; /* Hide default cursor on links */
+}
+
+.custom-cursor {
+  position: fixed;
+  z-index: 9999; /* Ensure cursor is on top of all elements */
+  width: 15px;
+  height: 15px; 
+  border-radius: 2%; /* Делаем курсор круглым */
+  background-color: #ff9100;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%); /* Центрируем курсор относительно координат мыши */
+  transition: transform .10s linear; /* Плавное перемещение курсора */
+  pointer-events: none; 
+}
+
+.custom-cursor.pressed {
+  transform: translate(-50%, -50%) scale(1.1); /* Увеличиваем курсор */
+  transition: transform .1s linear; /* Анимация увеличения курсора */
 }
 
 @keyframes fadeInAnimation {
@@ -49,20 +72,6 @@ h3 {
   font-size: 1.3rem;
 }
 
-/* Ensure minimum and maximum font sizes for better readability */
-@media (max-width: 768px) {
-  body {
-      font-size: 1.1rem; /* Responsive scaling for smaller screens */
-  }
-}
-
-@supports (-webkit-touch-callout: none) {
-  /* Safari-specific adjustments */
-  body {
-      font-size: 1rem;
-  }
-}
-
 ::-webkit-scrollbar {
   display: none;
   -ms-overflow-style: none;
@@ -74,14 +83,6 @@ a:visited {
   color: #000000;
   text-decoration: none;
 }
-
-/* .row a {
-  text-transform: uppercase;
-  font-variant-caps: all-small-caps;
-  font-family: 'Karl Mono ST', monospace;
-  font-size: 1.4rem;
-} */
-
 a:hover,
 a:focus {
   color: #ff9100;
@@ -90,13 +91,6 @@ a:focus {
 
 li {
   display: grid;
-}
-
-.mobile {
-  display: none;
-  visibility: hidden;
-  font-size: 0.8rem;
-  font-weight: normal;
 }
 
 video {
@@ -110,6 +104,16 @@ video {
     display: none !important;
   }
   .mobile {
+    display: block;
+    visibility: visible;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .mobile {
+    display: none !important;
+  }
+  .desktop {
     display: block;
     visibility: visible;
   }
@@ -142,8 +146,15 @@ video {
 .main-content {
   display: flex;
   padding: 2%;
-  height: calc(100vh - 21vh - 5vh); /* Adjust height to fit the viewport minus header height */
-  padding-bottom: 2%;  
+  padding-bottom: 2%;
+  z-index: -1;
+}
+
+.info-content{
+  display: absolute;
+  padding-top: 15%;
+  padding-left: 43%;
+  z-index: -1;
 }
 
 .sidebar {
@@ -155,8 +166,6 @@ video {
   height: 94vh;
   z-index: 2;
   overflow: hidden;
-    /* border: 5px solid red; 
-  background-color: #bbb; */
 }
 
 .sidebar-item {
@@ -183,26 +192,24 @@ video {
 }
 
 #image-gallery {
-  width: 100%; /* Remaining space beside the sidebar */
+  width: 70%; /* Remaining space beside the sidebar */
+  right: -15vw;
   height: 100vh; /* Full height */
   display: flex;
   flex-direction: column;
   align-self: center;
   justify-content: center; /* Center the container horizontally */
-  background-color: white; /* Background for contrast */
   position: fixed;
-  right: 0;
-  top: -5%;
-  z-index: -1; /* Lower z-index to stay in the background */
+  top: 0%;
+  z-index: 1; /* Lower z-index to stay in the background */
   pointer-events: none; /* Allow scrolling through the image gallery */
 }
 
 /* Inner 16:9 aspect ratio container */
 .image-container {
-  width: 60%; /* Full width of the gallery area */
-  /* max-width: calc(100vh * (16 / 9)); Maintain 16:9 aspect ratio */
+  width: 100%; /* Full width of the gallery area */
   position: relative;
-  background-color: white; /* Background behind images/videos */
+  /* background-color: white; Background behind images/videos */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -252,7 +259,7 @@ video {
 }
 
 .work-content { 
-  width: 50%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   margin-top: 8vh;
@@ -260,16 +267,19 @@ video {
   padding: 2%;
   padding-bottom: 60px; /* Add padding to avoid overlap with the footer */
   min-height: 100vh; /* Ensure the main content takes up at least the full viewport height */
-  position: relative; /* Ensure the main content is positioned relative to the background */
+  position: absolute; /* Ensure the main content is positioned relative to the background */
   z-index: 2; /* Higher z-index to appear above the background */
   text-align: justify;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .work-content h1 {
   margin-bottom: 20px;
   font-weight: 400;
   font-size: 3.5rem;
-  font-variant-caps: all-small-caps;
 }
 
 .work-content h2 {
@@ -339,30 +349,32 @@ video {
 }
 
 .project-gallery {
-  display: grid;
+  display: block; /* Switch to block for column layout */
+  column-count: 2; /* Masonry layout with 2 columns */
+  column-gap: 40px;
   margin-top: 40px; /* Add some space between the sections */
-  row-gap: 10px; /* Add some space between rows */
-  gap: 10px; /* Add some space between gallery items */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
-  gap: 50px; /* Space between items */
   padding-bottom: 4%;
 }
 
 .gallery-item {
   width: 100%;
-  display: absolute;
   height: auto;
-  object-fit: contain; /* Ensure the entire image is visible */
-  align-self: center;
-  max-width: 100%; /* Ensure images do not exceed container width */
-  max-height: 100%; /* Ensure images do not exceed container height */
+  margin-bottom: 40px; /* Space between items vertically */
+  break-inside: avoid; /* Prevent items from splitting across columns */
+  transition: transform 0.3s ease;
 }
 
-/* Style for videos */
+.gallery-item:hover {
+  transform: scale(1.02);
+}
+
+/* Style for inner media */
+.gallery-item img,
 .gallery-item video {
   width: 100%;
   height: auto;
-  border-radius: 5px;
+  display: block;
+  border-radius: 2px;
 }
 
 .google-drive-video {
@@ -380,8 +392,8 @@ video {
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  /* background-color: rgb(0,0,0); Fallback color */
+  /* background-color: rgba(0,0,0,0.9); */
   display: flex; /* Use Flexbox to center content */
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
@@ -389,28 +401,26 @@ video {
 }
 
 .modal-content {
-  width: 90vmax; /* Set width to 80% of the viewport minimum dimension */
-  height: 80vmin; /* Set height to 80% of the viewport minimum dimension */
-  max-width: 1000px; /* Maximum width */
-  max-height: 800px; /* Maximum height */
+  width: 100vh;
+  height: 100vh; 
   margin: auto;
   display: flex; /* Use Flexbox to center content */
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   background-color: white;
-  padding: 40px; /* Add padding */
+  padding: 30px; 
   box-sizing: border-box; /* Include padding in width and height */
   position: relative;
-  z-index: 3;
+  z-index: 5;
 }
 
 .modal-image, .modal-video {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 90vh;
+  max-height: 90vh;
   width: auto;
   height: auto;
-  background-color: white;
-  z-index: 3;
+  padding-top: 5vw;
+  z-index: 5;
 }
 
 /* Make markdown images clickable */
@@ -441,20 +451,28 @@ video {
 }
 
 .close {
-  position: absolute;
-  top: 10px;
-  right: 20px;
+  width: 100%;
+  padding-bottom: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  left: 0;
+  position: fixed;
+  bottom: 0; /* Position the footer at the bottom */
+  text-align: right; /* Align text to the right */
+  z-index: 2; /* Higher z-index to appear above the background */
+  position: fixed;
+  bottom: 4%;
+  right: 15%;
   color: black;
-  font-size: 40px;
   /* font-weight: bold; */
-  transition: 0.3s;
+  z-index: 4;
+  text-decoration: underline;
 }
 
 .close:hover,
 .close:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
+  color: #ff9100;
+  cursor: none !important;
 }
 
 .arrow {
@@ -462,12 +480,12 @@ video {
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(255, 255, 255, 0);
-  color: white;
+  color: rgb(0, 0, 0);
   border: none;
   font-size: 30px;
   padding: 10px;
-  cursor: pointer;
-  z-index: 2;
+  cursor: none;
+  z-index: 4;
 }
 
 .arrow.left {
@@ -490,33 +508,31 @@ video {
 
   .project-gallery {
       width: 100%; /* Full width for small screens */
+      column-count: 1; /* Single column on mobile */
   }
 }
 
-iframe {
+/* iframe {
   padding: 5%;
-}
-
-.gallery-item:hover {
-  transform: scale(1.05);
-}
+} */
 
 #about-content {
   width: 35%;
+  margin-top: 15%;
   margin-left: 5%;
-  margin-top: 40vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  /* text-align: justify; */
+  text-align: justify;
   box-sizing: border-box;
   overflow: none;
   align-self: right;
 }
 
 .side-image {
-  margin-left: 15%;
+  margin-left: 10%;
+  margin-top: 20vh;
   display: flex;
   align-items: center; /* Center the image vertically within the side-image container */
   justify-content: center; /* Center the image horizontally within the side-image container */
@@ -526,7 +542,6 @@ iframe {
   width: 80%;
   max-width: 30vw; /* Adjust the size as needed */
   margin: auto;
-  margin-top: 25%;
   display: block;
 }
 
@@ -565,15 +580,27 @@ iframe {
   margin-left: 5px;
 }
 
+#next-project-container {
+  font-size: 1.2rem;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
 
+  body {
+     font-size: 2.3vh; /* Adjusts size relative to viewport width */
+  }
+
   .header {
-      position: relative;
+      position: fixed;
+      background-color: #ffffff;
       flex-direction: row;
       flex-wrap: wrap;
       height: auto;
       padding-bottom: 20px;
+      z-index: 3;
   }
 
   .header .row.title {
@@ -583,9 +610,7 @@ iframe {
 
   .header .row, 
   .header .column {
-      /* flex: 0 0 auto !important; Override inline flex styles */
       width: auto;
-      text-align: left !important;
       margin-top: 0;
   }
 
@@ -599,7 +624,7 @@ iframe {
   }
 
   .sidebar {
-      padding-top: 25vh;
+      padding-top: 35vh;
       width: 100%;
       height: auto;
       overflow: visible;
@@ -612,17 +637,31 @@ iframe {
   .footer {
       position: fixed;
       bottom: 0;
-      left: 0
+      left: 0;
+      z-index: 5;
   }
   .work-content {
-      width: 70%;
+      width: 90%;
       margin: auto;
+      padding-top: 15vh;
       padding-bottom: 80px; /* Extra padding for footer */
+  }
+
+  .work-content h1 {
+    font-weight: bold;
+    font-size: 2.8vh;
+  }
+
+  .work-content h3 {
+    font-size: 2.5vh;
   }
 
   #about-content {
       width: 80%;
       margin: auto;
+      text-align: justify;
+      margin-top: 10%;
+      margin-bottom: 10vh;
   }
 
   .portrait {
@@ -631,6 +670,60 @@ iframe {
   margin: 0 0 0 0;
   position: center;
   padding: 0 0 0 0;
+  }
+
+  .side-image {
+  margin-top: 10vh;
+  margin-left: 0;
+  }
+
+  .info-content{
+  display: absolute;
+  padding-top: 25vh;
+  padding-left: 2%;
+  z-index: -1;
+  }
+
+  a:hover,
+  a:focus {
+  color: black;
+  text-decoration: none;
+  }
+
+  .sidebar-item a:focus {
+  color: black;
+  text-decoration: none;
+  }
+
+  g {
+    font-size: 1.4vh;
+  }
+
+  .custom-cursor {
+    display: none; /* Hide custom cursor on mobile */
+  }
+
+  .modal-image, .modal-video {
+  max-width: 50vh;
+  max-height: 50vh;
+  }
+
+  .close {
+  position: fixed;
+  bottom: 5vh;
+  right: 2%;
+  }
+
+  #next-project-container {
+  font-size: 2.1vh;
+  margin-bottom: 10px;
+  }
 }
 
+.sequential-number {
+  flex: 0 0 1.5rem;
+  margin-right: 0.7rem;
+  text-align: right;
 }
+
+

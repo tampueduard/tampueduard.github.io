@@ -127,7 +127,9 @@ fetch('../projects.json')
                     const video = document.createElement('video');
                     video.src = mainMedia.src;
                     video.controls = true;
+                    video.playsInline = true; // Ensure inline playback on mobile
                     video.style.width = "100%"; // Ensure the video scales
+                    video.style.height = "auto"; // Maintain aspect ratio
                     mainMediaContainer.appendChild(video);
 
                 } else if (mainMedia.type === "youtube") {
@@ -135,23 +137,27 @@ fetch('../projects.json')
                     iframeContainer.className = "responsive-iframe-container";
 
                     const iframe = document.createElement('iframe');
-                    iframe.src = mainMedia.src;
-                    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                    // Add playsinline parameter for iOS
+                    const separator = mainMedia.src.includes('?') ? '&' : '?';
+                    iframe.src = `${mainMedia.src}${separator}playsinline=1`;
+                    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen";
                     iframe.allowFullscreen = true;
 
                     iframeContainer.appendChild(iframe);
                     mainMediaContainer.appendChild(iframeContainer);
 
                 } else if (mainMedia.type === "spotify") {
-                    const iframeContainer = document.createElement('div');
-                    iframeContainer.className = "responsive-spotify-container";
-
                     const iframe = document.createElement('iframe');
                     iframe.src = mainMedia.src;
+                    iframe.style.width = "100%";
+                    iframe.style.height = "352px"; // Fixed height for better desktop/mobile display
+                    iframe.style.border = "0";
+                    iframe.style.display = "block";
                     iframe.allow = "encrypted-media";
+                    iframe.allowFullscreen = true;
+                    iframe.loading = "lazy";
 
-                    iframeContainer.appendChild(iframe);
-                    mainMediaContainer.appendChild(iframeContainer);
+                    mainMediaContainer.appendChild(iframe);
 
                 } else if (mainMedia.type === "google-drive-video") {
                     // Handle Google Drive embedded video
@@ -160,9 +166,9 @@ fetch('../projects.json')
 
                     const iframe = document.createElement('iframe');
                     iframe.src = mainMedia.src;
-                    iframe.width = "640";
-                    iframe.height = "480";
-                    iframe.allow = "autoplay";
+                    iframe.style.width = "100%";
+                    iframe.style.height = "100%";
+                    iframe.allow = "autoplay; fullscreen";
                     iframe.frameBorder = "0";
                     iframe.allowFullscreen = true;
 
@@ -196,7 +202,7 @@ fetch('../projects.json')
                     if (mediaItem.type === 'image') {
                         mediaElement = document.createElement('img');
                         mediaElement.src = mediaItem.src;
-                        mediaElement.className = 'gallery-item';
+                        mediaElement.loading = "lazy";
                         mediaElement.addEventListener('click', () => {
                             openModal(index, 'image');
                         });
@@ -207,7 +213,7 @@ fetch('../projects.json')
                         mediaElement.loop = true;
                         mediaElement.muted = true;
                         mediaElement.autoplay = true;
-                        mediaElement.className = 'gallery-item';
+                        mediaElement.playsInline = true;
                         mediaElement.addEventListener('click', () => {
                             openModal(index, 'video');
                         });
@@ -220,7 +226,7 @@ fetch('../projects.json')
                         // Create the Google Drive iframe
                         mediaElement = document.createElement('iframe');
                         mediaElement.src = mediaItem.src;
-                        mediaElement.allow = "autoplay";
+                        mediaElement.allow = "autoplay; fullscreen";
                         mediaElement.frameBorder = "0";
                         mediaElement.className = 'responsive-media';
                         mediaElement.allowFullscreen = true;
@@ -231,12 +237,26 @@ fetch('../projects.json')
                         return; // Exit function to prevent double append
                     }
 
-                    // Append the media element to the gallery
-                    galleryContainer.appendChild(mediaElement);
+                    // Append media to wrapper, then wrapper to gallery
+                    mediaWrapper.appendChild(mediaElement);
+                    galleryContainer.appendChild(mediaWrapper);
                 });
 
             } else {
                 console.log("No media items found for this project.");
+            }
+
+            // Suggest another work
+            const otherProjects = data.filter(p => p.id != projectId);
+            if (otherProjects.length > 0) {
+                const randomProject = otherProjects[Math.floor(Math.random() * otherProjects.length)];
+                const nextContainer = document.getElementById('next-project-container');
+                if (nextContainer) {
+                    nextContainer.innerHTML = `
+                        <div>Next Project</div>
+                        <a href="work.html?id=${randomProject.id}">${randomProject.title} &rarr;</a>
+                    `;
+                }
             }
         } else {
             console.error("Project not found");
@@ -258,11 +278,11 @@ function openModal(index, type) {
     modal.className = 'modal';
     modal.innerHTML = `
         <div class="modal-content">
-            <span id="close-modal" class="close">&times;</span>
             <img id="modal-image" class="modal-image" src="" alt="Expanded Image">
             <video id="modal-video" class="modal-video" controls></video>
             <button id="prev-media" class="arrow left">&larr;</button>
             <button id="next-media" class="arrow right">&rarr;</button>
+            <span id="close-modal" class="close">close</span>
         </div>
     `;
 
@@ -328,6 +348,32 @@ function openModal(index, type) {
             modal.remove(); // Remove modal from DOM
             modalVideo.pause(); // Pause the video when closing the modal
             window.removeEventListener('keydown', handleKeydown); // Remove event listener
+        }
+    }
+
+    // Swipe gestures
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    modal.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    modal.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+        if (touchEndX < touchStartX - 50) {
+            // Swipe Left -> Next
+            currentMediaIndex = (currentMediaIndex + 1) % mediaItems.length;
+            updateModalContent();
+        }
+        if (touchEndX > touchStartX + 50) {
+            // Swipe Right -> Previous
+            currentMediaIndex = (currentMediaIndex - 1 + mediaItems.length) % mediaItems.length;
+            updateModalContent();
         }
     }
 
@@ -410,3 +456,24 @@ function scrollBackToText(event, num) {
         ref.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const cursor = document.createElement('div');
+  cursor.classList.add('custom-cursor');
+  document.body.appendChild(cursor);
+
+  function moveCursor(x, y) {
+    cursor.style.left = x + 'px';
+    cursor.style.top = y + 'px';
+  }
+  document.addEventListener('mousemove', (e) => {
+    moveCursor(e.clientX, e.clientY); 
+  });
+
+  document.addEventListener('mousedown', () => {
+    cursor.classList.add('pressed'); 
+  });
+  document.addEventListener('mouseup', () => {
+    cursor.classList.remove('pressed'); 
+  });
+});

@@ -27,7 +27,7 @@
     {
         "id": "thesoundmemoryoftheruff",
         "title": "The Sound Memory of the Ruff",
-        "type": "Music, Sound Design and Foley",
+        "type": "Music and Foley",
         "year": "2024",
         "month": "2",
         "contentFile": "content/soundoftheruff.md",
@@ -182,7 +182,7 @@
     {
         "id": "minerva",
         "title": "Minerva",
-        "type": "Music, Sound Design and Foley",
+        "type": "Music and Foley",
         "year": "2023",
         "month": "10",
         "contentFile": "content/minerva.md",

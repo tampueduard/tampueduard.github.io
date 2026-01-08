@@ -31,13 +31,16 @@ fetch('projects.json')
       projectIndex += 1; // Increment the sequential number
 
       let yearDisplay = '';
+      let yearDisplayMobile = '';
       let line = '';
       if (project.year !== currentYear) {
         currentYear = project.year;
-        yearDisplay = `<div class="project-year" data-year="${project.year}" style="flex: 1; text-align: left;">${project.year}</div>`;
+        yearDisplay = `<div class="project-year" data-year="${project.year}" style="flex: 0.5; text-align: left;">${project.year}</div>`;
+        yearDisplayMobile = `<div class="project-year" data-year="${project.year}" style="flex: 0 0 60px; text-align: left;">${project.year}</div>`;
         line = '<hr>';
       } else {
-        yearDisplay = `<div class="project-year" data-year="${project.year}" style="flex: 1; text-align: left;"></div>`;
+        yearDisplay = `<div class="project-year" data-year="${project.year}" style="flex: 0.5; text-align: left;"></div>`;
+        yearDisplayMobile = `<div class="project-year" data-year="${project.year}" style="flex: 0 0 60px; text-align: left;"></div>`;
       }
 
       const formattedIndex = projectIndex.toString().padStart(3, '0'); // Format as 001, 002, etc.
@@ -47,15 +50,23 @@ fetch('projects.json')
              onmouseover="startSlideshow(${index}); highlightYear('${project.year}')" 
              onmouseout="stopSlideshow(); removeHighlight('${project.year}')">
           <a href="work.html?id=${project.id}" class="project-link">
-            <div style="display: flex; align-items: center;">
+            <div class="desktop" style="display: flex; align-items: center;">
               <!-- Year -->
               ${yearDisplay}
               <!-- Sequential Number -->
-              <div style="flex: 0 0 1.5rem; margin-right: 0.7rem; text-align: left;">${formattedIndex}</div>
+              <div class="sequential-number">${formattedIndex}</div>
               <!-- Title -->
               <div style="flex: 2; text-align: left;">${project.title}</div>
               <!-- Type -->
               <div style="flex: 2; text-align: left;">${project.type}</div>
+            </div>
+            <div class="mobile">
+              <div style="display: flex; align-items: left;">
+                <!-- Year -->
+                ${yearDisplayMobile}
+                <!-- Title -->
+                <div style="flex: 2.6; text-align: left;">${project.title} <g> ${project.type}</g></div>
+              </div>
             </div>
           </a>
         </div>
@@ -221,5 +232,38 @@ document.addEventListener('DOMContentLoaded', function () {
       // Optionally, you can restart the slideshow when the mouse leaves the project
       // slideshowInterval = setInterval(showRandomImage, 3000);
     }
+  });
+
+  // Menu toggle functionality
+  const menuToggle = document.getElementById('menu-toggle');
+  const menuItems = document.getElementById('menu-items');
+
+  if (menuToggle && menuItems) {
+    menuToggle.addEventListener('click', function () {
+      const isHidden = menuItems.style.display === 'none';
+      menuItems.style.display = isHidden ? 'block' : 'none';
+      menuToggle.textContent = isHidden ? 'close' : 'menu';
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const cursor = document.createElement('div');
+  cursor.classList.add('custom-cursor');
+  document.body.appendChild(cursor);
+
+  function moveCursor(x, y) {
+    cursor.style.left = x + 'px';
+    cursor.style.top = y + 'px';
+  }
+  document.addEventListener('mousemove', (e) => {
+    moveCursor(e.clientX, e.clientY); 
+  });
+
+  document.addEventListener('mousedown', () => {
+    cursor.classList.add('pressed'); 
+  });
+  document.addEventListener('mouseup', () => {
+    cursor.classList.remove('pressed'); 
   });
 });
