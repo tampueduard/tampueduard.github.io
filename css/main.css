@@ -2,9 +2,6 @@
 *{
   box-sizing: border-box;
 }
-.desktop {
-  display: block;
-}
 
 html, body {
   height: 100%;
@@ -34,6 +31,8 @@ body {
 
 a {
   cursor: none !important; /* Hide default cursor on links */
+  color: #000000;
+  text-decoration: none;
 }
 
 .custom-cursor {
@@ -78,11 +77,11 @@ h3 {
   scrollbar-width: none;
 }
 
-a,
 a:visited {
   color: #000000;
   text-decoration: none;
 }
+
 a:hover,
 a:focus {
   color: #ff9100;
@@ -97,6 +96,30 @@ video {
   -webkit-mask-image: -webkit-radial-gradient(white, black);
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
+}
+
+.footnote-ref {
+  text-decoration: none;
+  font-size: 0.5rem;
+}
+
+.footnote {
+  font-size: 0.9em;
+  margin-top: 10px; 
+  padding: 5px;
+  border-left: 3px solid #ccc;
+  padding-left: 10px;
+}
+
+.footnote-back {
+  text-decoration: none;
+  font-size: 0.9em;
+  margin-left: 5px;
+}
+
+/* Visibility Classes */
+.desktop {
+  display: block;
 }
 
 @media only screen and (max-width: 768px) {
@@ -119,6 +142,7 @@ video {
   }
 }
 
+/* --- Layout (Desktop Default) --- */
 .header {
   display: flex;
   padding: 2% 2% 0% 2%;
@@ -130,17 +154,28 @@ video {
   padding-bottom: 1%;
 }
 
+.footer {
+  width: 100%;
+  padding-bottom: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  left: 0;
+  position: fixed;
+  bottom: 0; /* Position the footer at the bottom */
+  text-align: right; /* Align text to the right */
+  z-index: 2; /* Higher z-index to appear above the background */
+  pointer-events: none; /* Allow scrolling through the image gallery */
+}
+
+.footer:hover + .image-container {
+  background-color: #ff9100;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 0.8fr 1.5fr 1fr 1fr;
   justify-content: right;
   width: 100%;
-}
-
-.main-media {
-  display: flex;
-  justify-content: center; /* Center the media horizontally */
-  align-items: center; /* Center the media vertically */
 }
 
 .main-content {
@@ -150,18 +185,12 @@ video {
   z-index: -1;
 }
 
-.info-content{
-  display: absolute;
-  padding-top: 15%;
-  padding-left: 43%;
-  z-index: -1;
-}
-
+/* --- Components --- */
 .sidebar {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: left;
+  align-items: flex-start;
   width: 50%; 
   height: 94vh;
   z-index: 2;
@@ -187,8 +216,10 @@ video {
   color: #ff9100; /* Highlight color */
 }
 
-.main-media {
-  margin-bottom: 20px; /* Add some space between the main media and the project details */
+.sequential-number {
+  flex: 0 0 1.5rem;
+  margin-right: 0.7rem;
+  text-align: right;
 }
 
 #image-gallery {
@@ -237,27 +268,6 @@ video {
   opacity: 1;
 }
 
-#gallery-image img.active, #gallery-image video.active {
-  opacity: 1;
-}
-
-.footer:hover + .image-container {
-  background-color: #ff9100;
-}
-
-.footer {
-  width: 100%;
-  padding-bottom: 2%;
-  padding-left: 2%;
-  padding-right: 2%;
-  left: 0;
-  position: fixed;
-  bottom: 0; /* Position the footer at the bottom */
-  text-align: right; /* Align text to the right */
-  z-index: 2; /* Higher z-index to appear above the background */
-  pointer-events: none; /* Allow scrolling through the image gallery */
-}
-
 .work-content { 
   width: 60%;
   display: flex;
@@ -302,6 +312,13 @@ video {
 }
 .project-details a:hover {
   text-decoration: underline;
+}
+
+.main-media {
+  display: flex;
+  justify-content: center; /* Center the media horizontally */
+  align-items: center; /* Center the media vertically */
+  margin-bottom: 20px; /* Add some space between the main media and the project details */
 }
 
 #main-media-container {
@@ -433,33 +450,7 @@ video {
   transform: scale(1.01);
 }
 
-.responsive-iframe-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio */
-  height: 0;
-  overflow: hidden;
-}
-
-.responsive-iframe-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
 .close {
-  width: 100%;
-  padding-bottom: 2%;
-  padding-left: 2%;
-  padding-right: 2%;
-  left: 0;
-  position: fixed;
-  bottom: 0; /* Position the footer at the bottom */
-  text-align: right; /* Align text to the right */
-  z-index: 2; /* Higher z-index to appear above the background */
   position: fixed;
   bottom: 4%;
   right: 15%;
@@ -496,25 +487,15 @@ video {
   right: -150px;
 }
 
-/* Responsive layout for smaller screens */
-@media (max-width: 768px) {
-  .main-content {
-      flex-direction: column;
-  }
-
-  .project-details {
-      width: 100%; /* Full width for small screens */
-  }
-
-  .project-gallery {
-      width: 100%; /* Full width for small screens */
-      column-count: 1; /* Single column on mobile */
-  }
-}
-
 /* iframe {
   padding: 5%;
 } */
+
+#next-project-container {
+  font-size: 1.2rem;
+  color: #000000;
+  margin-bottom: 10px;
+}
 
 #about-content {
   width: 35%;
@@ -526,8 +507,7 @@ video {
   align-items: flex-start;
   text-align: justify;
   box-sizing: border-box;
-  overflow: none;
-  align-self: right;
+  align-self: flex-end;
 }
 
 .side-image {
@@ -545,6 +525,13 @@ video {
   display: block;
 }
 
+.info-content{
+  position: absolute;
+  padding-top: 15%;
+  padding-left: 43%;
+  z-index: -1;
+}
+
 .mobile-message {
   display: flex;
   justify-content: center;
@@ -556,41 +543,26 @@ video {
   background-color: white;
 }
 
-/* Style footnote numbers */
-.footnote-ref {
-  text-decoration: none;
-  font-size: 0.5rem;
-  /* vertical-align: center; */
-  /* margin-left: 2px; */
-}
-
-/* Style the footnote section */
-.footnote {
-  font-size: 0.9em;
-  margin-top: 10px; 
-  padding: 5px;
-  border-left: 3px solid #ccc;
-  padding-left: 10px;
-}
-
-/* Add a return link */
-.footnote-back {
-  text-decoration: none;
-  font-size: 0.9em;
-  margin-left: 5px;
-}
-
-#next-project-container {
-  font-size: 1.2rem;
-  color: #000000;
-  margin-bottom: 10px;
-}
-
-/* Mobile Responsive Styles */
+/* --- Mobile Responsive Overrides --- */
 @media (max-width: 768px) {
 
   body {
      font-size: 2.3vh; /* Adjusts size relative to viewport width */
+  }
+
+  .main-content {
+      flex-direction: column;
+      display: block;
+      height: auto;
+  }
+
+  .project-details {
+      width: 100%; /* Full width for small screens */
+  }
+
+  .project-gallery {
+      width: 100%; /* Full width for small screens */
+      column-count: 1; /* Single column on mobile */
   }
 
   .header {
@@ -616,11 +588,6 @@ video {
 
   .header .row:empty {
       display: none;
-  }
-  
-  .main-content {
-      display: block;
-      height: auto;
   }
 
   .sidebar {
@@ -668,7 +635,6 @@ video {
   width: 100%;
   max-width: 50vw; /* Adjust the size as needed */
   margin: 0 0 0 0;
-  position: center;
   padding: 0 0 0 0;
   }
 
@@ -678,7 +644,7 @@ video {
   }
 
   .info-content{
-  display: absolute;
+  position: absolute;
   padding-top: 25vh;
   padding-left: 2%;
   z-index: -1;
@@ -719,11 +685,3 @@ video {
   margin-bottom: 10px;
   }
 }
-
-.sequential-number {
-  flex: 0 0 1.5rem;
-  margin-right: 0.7rem;
-  text-align: right;
-}
-
-
