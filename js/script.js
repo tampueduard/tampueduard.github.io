@@ -35,11 +35,11 @@ fetch('projects.json')
       let line = '';
       if (project.year !== currentYear) {
         currentYear = project.year;
-        yearDisplay = `<div class="project-year" data-year="${project.year}" style="flex: 0.5; text-align: left;">${project.year}</div>`;
+        yearDisplay = `<div class="project-year" data-year="${project.year}" style="flex: 0.3; text-align: left;">${project.year}</div>`;
         yearDisplayMobile = `<div class="project-year" data-year="${project.year}" style="flex: 0 0 60px; text-align: left;">${project.year}</div>`;
         line = '<hr>';
       } else {
-        yearDisplay = `<div class="project-year" data-year="${project.year}" style="flex: 0.5; text-align: left;"></div>`;
+        yearDisplay = `<div class="project-year" data-year="${project.year}" style="flex: 0.3; text-align: left;"></div>`;
         yearDisplayMobile = `<div class="project-year" data-year="${project.year}" style="flex: 0 0 60px; text-align: left;"></div>`;
       }
 

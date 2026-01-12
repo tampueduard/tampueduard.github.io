@@ -182,7 +182,7 @@ video {
   display: flex;
   padding: 2%;
   padding-bottom: 2%;
-  z-index: -1;
+  z-index: 1;
 }
 
 /* --- Components --- */
@@ -190,11 +190,11 @@ video {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-start;
   width: 50%; 
   height: 94vh;
-  z-index: 2;
+  z-index: 4;
   overflow: hidden;
+  mix-blend-mode: difference;
 }
 
 .sidebar-item {
@@ -527,8 +527,9 @@ video {
 
 .info-content{
   position: absolute;
-  padding-top: 15%;
+  padding-top: 25vh;
   padding-left: 43%;
+  width: 100%;
   z-index: -1;
 }
 
@@ -554,6 +555,7 @@ video {
       flex-direction: column;
       display: block;
       height: auto;
+      z-index: 1;
   }
 
   .project-details {
