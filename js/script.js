@@ -267,3 +267,53 @@ document.addEventListener('DOMContentLoaded', () => {
     cursor.classList.remove('pressed'); 
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const tags = ["sound artist", "composer", "performer", "new media artist", "sound designer", "educator", "researcher", "technologist"];
+  const tagIds = ['current-tag', 'current-tag-mobile'];
+
+  tagIds.forEach(id => {
+    const tagElement = document.getElementById(id);
+    if (tagElement) {
+      let tagIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      let typeSpeed = 30;
+      let holdTime = 3000;
+
+      tagElement.textContent = tags[0];
+
+      function typeEffect() {
+        const currentTag = tags[tagIndex];
+
+        if (isDeleting) {
+          tagElement.textContent = currentTag.substring(charIndex);
+          charIndex++;
+          if (charIndex > currentTag.length) {
+            isDeleting = false;
+            tagIndex = (tagIndex + 1) % tags.length;
+            charIndex = 1;
+            setTimeout(typeEffect, 150);
+          } else {
+            setTimeout(typeEffect, typeSpeed);
+          }
+        } else {
+          tagElement.textContent = currentTag.substring(currentTag.length - charIndex);
+          charIndex++;
+          if (charIndex > currentTag.length) {
+            isDeleting = true;
+            charIndex = 1;
+            setTimeout(typeEffect, holdTime);
+          } else {
+            setTimeout(typeEffect, typeSpeed);
+          }
+        }
+      }
+      setTimeout(() => {
+        isDeleting = true;
+        charIndex = 1;
+        typeEffect();
+      }, holdTime);
+    }
+  });
+});

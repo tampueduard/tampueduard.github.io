@@ -210,10 +210,13 @@ video {
 
 .sidebar-item a:hover {
   color: #ff9100;
+  transition: all 0.3s ease-in-out;
 }
 
 .project-year.highlight {
   color: #ff9100; /* Highlight color */
+  background-color: #000000;
+  transition: all 0.3s ease-in-out;
 }
 
 .sequential-number {
@@ -588,8 +591,17 @@ video {
       margin-top: 0;
   }
 
-  .header .row:empty {
-      display: none;
+  .sub-header {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  padding: 0% 2% 0% 2%;
+  padding-top: 8vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5; /* Ensure the header appears above other content */
+  font-weight: 400;
   }
 
   .sidebar {
@@ -641,7 +653,7 @@ video {
   }
 
   .side-image {
-  margin-top: 10vh;
+  margin-top: 15vh;
   margin-left: 0;
   }
 
