@@ -5,14 +5,14 @@
         "type": "Max/MSP Developer",
         "typeDetails": "Audio Design & Max/MSP Development",
         "year": "2025",
-        "month": "9",
+        "month": "5",
         "place": "SOPI | Aalto University, Helsinki",
         "link": "https://sopi.aalto.fi/sonicmove.html",
         "contentFile": "content/sonicmove.md",
         "mainMedia": [
             {
                 "type": "image",
-                "src": "images/sonicmove/preliminary_score.png"
+                "src": "images/sonicmove/preliminary_score.webp"
             }
         ],
         "media": [
@@ -30,7 +30,59 @@
             },
             {
                 "type": "image",
-                "src": "images/sonicmove/preliminary_score.png"
+                "src": "images/sonicmove/preliminary_score.webp"
+            }
+        ]
+    },
+    {
+        "id": "aurora",
+        "title": "Aurora",
+        "type": "Music, Sound Design",
+        "typeDetails": "for Tino Selic",
+        "year": "2025",
+        "month": "1",
+        "place": "Helsinki German School / Aalto University",
+        "link": "https://www.tinoselic.com/art/2026/aurora/",
+        "contentFile": "content/aurora.md",
+        "mainMedia": [
+            {
+                "type": "youtube",
+                "src": "https://www.youtube.com/embed/eMD44GrW8Y8?si=_GZgLxd43bTTyz1q"
+            }
+        ],
+        "media": [
+            {
+                "type": "image",
+                "src": "images/aurora/aurora.webp"
+            },
+            {
+                "type": "video",
+                "src": "https://www.youtube.com/embed/59SBbXLlMXQ?si=mgt6MNAVpyl0gFUK"
+            }
+        ]
+    },
+    {
+        "id": "ilonasounddesign",
+        "title": "Belphegor's Summoning",
+        "type": "Music, Sound Design",
+        "year": "2025",
+        "month": "2",
+        "typeDetails": "for Ilona Pakarinen",
+        "contentFile": "content/nobodyelse.md",
+        "mainMedia": [
+            {
+                "type": "video",
+                "src": "https://aaltodoc.aalto.fi/server/api/core/bitstreams/3683b5ee-9be9-4ed0-85d2-9892c0c9ef2a/content"
+            }
+        ],
+        "media": [
+            {
+                "type": "image",
+                "src": "images/nobodyelse/belphegorsummoning_1.webp"
+            },
+            {
+                "type": "image",
+                "src": "images/nobodyelse/project_overview.webp"
             }
         ]
     },
@@ -63,6 +115,7 @@
         "id": "thesoundmemoryoftheruff",
         "title": "The Sound Memory of the Ruff",
         "type": "Music and Foley",
+        "typeDetails": "for Tiina Majabacka",
         "year": "2024",
         "month": "2",
         "contentFile": "content/soundoftheruff.md",
@@ -475,8 +528,9 @@
     {
         "id": "VK2025",
         "title": "VK2025",
-        "type": "Sound Design",
+        "type": "Music, Sound Design",
         "year": "2025",
+        "month": "3",
         "contentFile": "content/vk2025.md",
         "mainMedia": [
             {

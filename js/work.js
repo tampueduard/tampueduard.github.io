@@ -224,11 +224,10 @@ fetch('js/projects.json')
                     video.src = mainMedia.src;
                     video.playsInline = true;
                     video.setAttribute('playsinline', '');
-                    video.loop = true;
-                    video.muted = (mainMedia.muted !== undefined) ? mainMedia.muted : true;
-                    video.volume = 0.2;
-                    video.controls = mainMedia.controls;
-                    video.autoplay = true;
+                    video.loop    = mainMedia.loop    ?? false;
+                    video.muted   = mainMedia.muted   ?? false;
+                    video.autoplay = mainMedia.autoplay ?? false;
+                    video.controls = mainMedia.controls ?? true;
                     container.appendChild(video);
                     mainMediaContainer.appendChild(container);
 
