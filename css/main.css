@@ -358,7 +358,7 @@ video {
 /* Gallery project tag — appears over the background image (bottom-right, inside the portrait column) */
 .gallery-project-tag {
   position: fixed;
-  bottom: 2vh;
+  bottom: 0;
   right: 8%;
   left: auto;
   display: flex;
@@ -371,6 +371,7 @@ video {
   z-index: 6;
   background-color: rgba(255, 255, 255, 100%);
   padding: 0.4em 1em;
+  padding-bottom: 2%;
 }
 
 .gallery-tag-year {

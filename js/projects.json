@@ -40,27 +40,27 @@
         "media": [
             {
                 "type": "image",
-                "src": "images/soundoftheruff/soundoftheruff_1.jpg"
+                "src": "images/soundoftheruff/soundoftheruff_1.webp"
             },
             {
                 "type": "image",
-                "src": "images/soundoftheruff/soundoftheruff_2.jpg"
+                "src": "images/soundoftheruff/soundoftheruff_2.webp"
             },
             {
                 "type": "image",
-                "src": "images/soundoftheruff/soundoftheruff_3.jpg"
+                "src": "images/soundoftheruff/soundoftheruff_3.webp"
             },
             {
                 "type": "image",
-                "src": "images/soundoftheruff/soundoftheruff_4.jpg"
+                "src": "images/soundoftheruff/soundoftheruff_4.webp"
             },
             {
                 "type": "image",
-                "src": "images/soundoftheruff/soundoftheruff_5.jpg"
+                "src": "images/soundoftheruff/soundoftheruff_5.webp"
             },
             {
                 "type": "image",
-                "src": "images/soundoftheruff/soundoftheruff_6.jpg"
+                "src": "images/soundoftheruff/soundoftheruff_6.webp"
             }
         ]
     },
@@ -86,7 +86,7 @@
             },
             {
                 "type": "image",
-                "src": "images/paradosso/paradosso_2.jpg"
+                "src": "images/paradosso/paradosso_2.webp"
             },
             {
                 "type": "image",
@@ -94,11 +94,11 @@
             },
             {
                 "type": "image",
-                "src": "images/paradosso/paradosso_1.jpg"
+                "src": "images/paradosso/paradosso_1.webp"
             },
             {
                 "type": "image",
-                "src": "images/paradosso/spectrograph.png"
+                "src": "images/paradosso/spectrograph.webp"
             },
             {
                 "type": "video",
@@ -123,7 +123,7 @@
         "media": [
             {
                 "type": "image",
-                "src": "images/persi_nel_tempo/concert_1.png"
+                "src": "images/persi_nel_tempo/concert_1.webp"
             },
             {
                 "type": "image",
@@ -135,11 +135,11 @@
             },
             {
                 "type": "image",
-                "src": "images/persi_nel_tempo/concert_2.png"
+                "src": "images/persi_nel_tempo/concert_2.webp"
             },
             {
                 "type": "image",
-                "src": "images/persi_nel_tempo/concert_3.png"
+                "src": "images/persi_nel_tempo/concert_3.webp"
             },
             {
                 "type": "image",
@@ -147,7 +147,7 @@
             },
             {
                 "type": "image",
-                "src": "images/persi_nel_tempo/concert_4.png"
+                "src": "images/persi_nel_tempo/concert_4.webp"
             },
             {
                 "type": "image",
@@ -195,7 +195,7 @@
         "media": [
             {
                 "type": "image",
-                "src": "images/minerva/minerva.png"
+                "src": "images/minerva/minerva.webp"
             }
         ]
     },
@@ -242,23 +242,23 @@
         "media": [
             {
                 "type": "image",
-                "src": "images/thehiddenharmony/poster-bag.png"
+                "src": "images/thehiddenharmony/poster-bag.webp"
             },
             {
                 "type": "image",
-                "src": "images/thehiddenharmony/thehiddenharmony-3.jpeg"
+                "src": "images/thehiddenharmony/thehiddenharmony-3.webp"
             },
             {
                 "type": "image",
-                "src": "images/thehiddenharmony/thehiddenharmony-2.jpeg"
+                "src": "images/thehiddenharmony/thehiddenharmony-2.webp"
             },
             {
                 "type": "image",
-                "src": "images/thehiddenharmony/thehiddenharmony-1.jpeg"
+                "src": "images/thehiddenharmony/thehiddenharmony-1.webp"
             },
             {
                 "type": "image",
-                "src": "images/thehiddenharmony/thehiddenharmony-4.jpeg"
+                "src": "images/thehiddenharmony/thehiddenharmony-4.webp"
             },
             {
                 "type": "video",
@@ -294,7 +294,7 @@
             },
             {
                 "type": "image",
-                "src": "images/naytos23/technical.png"
+                "src": "images/naytos23/technical.webp"
             }
         ]
     },
@@ -308,7 +308,7 @@
         "mainMedia": [
             {
                 "type": "youtube",
-                "src":"https://player.vimeo.com/video/945895502?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                "src": "https://player.vimeo.com/video/945895502?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             }
         ],
         "media": [
@@ -328,7 +328,7 @@
         "media": [
             {
                 "type": "image",
-                "src": "images/noisetonoise/noisetonoise.png"
+                "src": "images/noisetonoise/noisetonoise.webp"
             }
         ]
     },
@@ -337,7 +337,7 @@
         "title": "Luce",
         "type": "Musical Interface",
         "year": "2022",
-        "contentFile": "content/luce.md", 
+        "contentFile": "content/luce.md",
         "mainMedia": [
             {
                 "type": "video",
@@ -347,23 +347,23 @@
         "media": [
             {
                 "type": "image",
-                "src": "images/luce/poster.png"
+                "src": "images/luce/poster.webp"
             },
             {
                 "type": "image",
-                "src": "images/luce/max-patch.png"
+                "src": "images/luce/max-patch.webp"
             },
             {
                 "type": "image",
-                "src": "images/luce/prefboard_3.png"
+                "src": "images/luce/prefboard_3.webp"
             },
             {
                 "type": "image",
-                "src": "images/luce/process_1.png"
+                "src": "images/luce/process_1.webp"
             },
             {
                 "type": "image",
-                "src": "images/luce/process_2.png"
+                "src": "images/luce/process_2.webp"
             },
             {
                 "type": "image",
@@ -384,7 +384,7 @@
             }
         ],
         "media": [
-            {   
+            {
                 "type": "image",
                 "src": "images/thereisnotenoughtime/frame_1.webp"
             },
@@ -404,11 +404,10 @@
                 "type": "image",
                 "src": "images/thereisnotenoughtime/frame_4.webp"
             },
-                        {
+            {
                 "type": "image",
-                "src": "images/thereisnotenoughtime/map.png"
+                "src": "images/thereisnotenoughtime/map.webp"
             }
-            
         ]
     },
     {
@@ -426,15 +425,15 @@
         "media": [
             {
                 "type": "image",
-                "src": "images/birds/visual_1.png"
+                "src": "images/birds/visual_1.webp"
             },
             {
                 "type": "image",
-                "src": "images/birds/visual_2.png"
+                "src": "images/birds/visual_2.webp"
             },
             {
                 "type": "image",
-                "src": "images/birds/visual_3.png"
+                "src": "images/birds/visual_3.webp"
             }
         ]
     },
@@ -446,27 +445,27 @@
         "contentFile": "content/vk2025.md",
         "media": [
             {
-                "type":"video",
+                "type": "video",
                 "src": "images/vk25/vk25_ai.mp4"
             },
             {
-                "type":"video",
+                "type": "video",
                 "src": "images/vk25/vk25_complexity.mp4"
             },
             {
-                "type":"video",
+                "type": "video",
                 "src": "images/vk25/vk25_nature.mp4"
             },
             {
-                "type":"video",
+                "type": "video",
                 "src": "images/vk25/vk25_law.mp4"
             },
             {
-                "type":"video",
+                "type": "video",
                 "src": "images/vk25/vk25_brakemusic.mp4"
             },
             {
-                "type":"video",
+                "type": "video",
                 "src": "images/vk25/vk25_firstideas.mp4"
             }
         ]
