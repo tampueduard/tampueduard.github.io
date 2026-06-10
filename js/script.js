@@ -2,7 +2,7 @@ let projectsData = [];
 let slideshowInterval;
 
 // Fetch projects data and store it in a variable
-fetch('projects.json')
+fetch('js/projects.json')
   .then(response => response.json())
   .then(data => {
     // Sort projects by year and month, placing non-numeric years at the bottom
@@ -30,7 +30,6 @@ fetch('projects.json')
       projectList.innerHTML = sortedProjects.map((project, index) => {
         projectIndex += 1;
 
-<<<<<<< HEAD
         let yearDisplay = '';
         let yearDisplayMobile = '';
         if (project.year !== currentYear) {
@@ -41,20 +40,6 @@ fetch('projects.json')
           yearDisplay = `<div class="project-year" data-year="${project.year}"></div>`;
           yearDisplayMobile = `<div class="project-year" data-year="${project.year}"></div>`;
         }
-=======
-      let yearDisplay = '';
-      let yearDisplayMobile = '';
-      let line = '';
-      if (project.year !== currentYear) {
-        currentYear = project.year;
-        yearDisplay = `<div class="project-year" data-year="${project.year}" style="flex: 0.3; text-align: left;">${project.year}</div>`;
-        yearDisplayMobile = `<div class="project-year" data-year="${project.year}" style="flex: 0 0 60px; text-align: left;">${project.year}</div>`;
-        line = '<hr>';
-      } else {
-        yearDisplay = `<div class="project-year" data-year="${project.year}" style="flex: 0.3; text-align: left;"></div>`;
-        yearDisplayMobile = `<div class="project-year" data-year="${project.year}" style="flex: 0 0 60px; text-align: left;"></div>`;
-      }
->>>>>>> fae678feaf374de6bc453caee93ad7b2e9f45669
 
         const formattedIndex = projectIndex.toString().padStart(3, '0');
 
@@ -246,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Fetch projects and collect image entries with metadata
-  fetch('projects.json')
+  fetch('js/projects.json')
     .then(response => response.json())
     .then(data => {
       data.forEach(project => {

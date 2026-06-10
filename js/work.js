@@ -6,7 +6,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const projectId = urlParams.get('id');
 
 // Fetch project details from JSON
-fetch('projects.json')
+fetch('js/projects.json')
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
