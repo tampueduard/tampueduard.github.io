@@ -647,6 +647,13 @@ video {
   width: 50%;
   z-index: 2;
   cursor: none;
+  transition: width 0.15s ease;
+}
+
+/* Shrink nav zones to edges so iframe players are fully interactive */
+.lightbox.lb-iframe-mode .lb-zone {
+  width: 8%;
+  cursor: pointer;
 }
 .lb-prev {
   left: 0;

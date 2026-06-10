@@ -483,6 +483,10 @@ function openModal(index) {
         if (vimeoPlayer) { vimeoPlayer.destroy(); vimeoPlayer = null; }
         if (lbAudio) { lbAudio.pause(); lbAudio = null; }
 
+        // Shrink nav zones for iframe types so the player is fully interactive
+        const isIframe = item.type === 'vimeo' || item.type === 'youtube';
+        lb.classList.toggle('lb-iframe-mode', isIframe);
+
         img.style.opacity = '0';
         vid.style.opacity = '0';
         vimeoFrame.style.opacity = '0';
