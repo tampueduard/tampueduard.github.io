@@ -1098,6 +1098,10 @@ video {
     margin-top: 0;
   }
 
+  .header .row:empty {
+      display: none;
+  }
+
   .sidebar {
     padding-top: 8vh;
     width: 100%;
