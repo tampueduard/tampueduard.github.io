@@ -14,64 +14,56 @@ fetch('projects.json')
       if (isANumeric && !isBNumeric) return -1;
       if (!isANumeric && !isBNumeric) return a.year.localeCompare(b.year);
 
-      // Compare by year and month
       if (a.year !== b.year) {
         return b.year.localeCompare(a.year);
       }
-      return (b.month || 0) - (a.month || 0); // Handle missing months by assuming 0
+      return (b.month || 0) - (a.month || 0);
     });
 
     projectsData = sortedProjects;
     const projectList = document.getElementById('project-list');
 
-    let currentYear = '';
-    let projectIndex = 0; // Sequential index for numbering
+    if (projectList) {
+      let currentYear = '';
+      let projectIndex = 0;
 
-    projectList.innerHTML = sortedProjects.map((project, index) => {
-      projectIndex += 1; // Increment the sequential number
+      projectList.innerHTML = sortedProjects.map((project, index) => {
+        projectIndex += 1;
 
-      let yearDisplay = '';
-      let yearDisplayMobile = '';
-      let line = '';
-      if (project.year !== currentYear) {
-        currentYear = project.year;
-        yearDisplay = `<div class="project-year" data-year="${project.year}" style="flex: 0.5; text-align: left;">${project.year}</div>`;
-        yearDisplayMobile = `<div class="project-year" data-year="${project.year}" style="flex: 0 0 60px; text-align: left;">${project.year}</div>`;
-        line = '<hr>';
-      } else {
-        yearDisplay = `<div class="project-year" data-year="${project.year}" style="flex: 0.5; text-align: left;"></div>`;
-        yearDisplayMobile = `<div class="project-year" data-year="${project.year}" style="flex: 0 0 60px; text-align: left;"></div>`;
-      }
+        let yearDisplay = '';
+        let yearDisplayMobile = '';
+        if (project.year !== currentYear) {
+          currentYear = project.year;
+          yearDisplay = `<div class="project-year" data-year="${project.year}">${project.year}</div>`;
+          yearDisplayMobile = `<div class="project-year" data-year="${project.year}">${project.year}</div>`;
+        } else {
+          yearDisplay = `<div class="project-year" data-year="${project.year}"></div>`;
+          yearDisplayMobile = `<div class="project-year" data-year="${project.year}"></div>`;
+        }
 
-      const formattedIndex = projectIndex.toString().padStart(3, '0'); // Format as 001, 002, etc.
+        const formattedIndex = projectIndex.toString().padStart(3, '0');
 
-      return `
-        <div class="sidebar-item" 
-             onmouseover="startSlideshow(${index}); highlightYear('${project.year}')" 
-             onmouseout="stopSlideshow(); removeHighlight('${project.year}')">
-          <a href="work.html?id=${project.id}" class="project-link">
-            <div class="desktop" style="display: flex; align-items: center;">
-              <!-- Year -->
-              ${yearDisplay}
-              <!-- Sequential Number -->
-              <div class="sequential-number">${formattedIndex}</div>
-              <!-- Title -->
-              <div style="flex: 2; text-align: left;">${project.title}</div>
-              <!-- Type -->
-              <div style="flex: 2; text-align: left;">${project.type}</div>
-            </div>
-            <div class="mobile">
-              <div style="display: flex; align-items: left;">
-                <!-- Year -->
-                ${yearDisplayMobile}
-                <!-- Title -->
-                <div style="flex: 2.6; text-align: left;">${project.title} <g> ${project.type}</g></div>
+        return `
+          <div class="sidebar-item"
+               onmouseover="startSlideshow(${index}); highlightYear('${project.year}')"
+               onmouseout="stopSlideshow(); removeHighlight('${project.year}')">
+            <a href="work.html?id=${project.id}" class="project-link">
+              <div class="desktop sidebar-row">
+                ${yearDisplay}
+                <div class="project-title">${project.title}</div>
+                <div class="project-type">${project.type}</div>
               </div>
-            </div>
-          </a>
-        </div>
-      `;
-    }).join('');
+              <div class="mobile">
+                <div class="sidebar-row-mobile">
+                  ${yearDisplayMobile}
+                  <div class="project-title-mobile">${project.title} <g>${project.type}</g></div>
+                </div>
+              </div>
+            </a>
+          </div>
+        `;
+      }).join('');
+    }
   });
 
 // Function to highlight the year
@@ -88,30 +80,36 @@ function removeHighlight(year) {
 
 function startSlideshow(index) {
   const gallery = document.getElementById('gallery-image');
-  console.log(`Starting slideshow for project index: ${index}`);
 
   if (projectsData[index] && projectsData[index].media) {
     let currentMediaIndex = 0;
     const mediaItems = projectsData[index].media;
 
-    // Function to show the current media item
     const showCurrentMedia = () => {
       const item = mediaItems[currentMediaIndex];
+      let creditsHtml = '';
+      if (item.credits) {
+        if (item.link) {
+          creditsHtml = `<div class="slideshow-credits" style="pointer-events: auto;"><a href="${item.link}" target="_blank">${item.credits}</a></div>`;
+        } else {
+          creditsHtml = `<div class="slideshow-credits">${item.credits}</div>`;
+        }
+      }
+
       if (item.type === 'image') {
-        gallery.innerHTML = `<img src="${item.src}" alt="Project Image" class="active">`;
+        gallery.innerHTML = `<img src="${item.src}" alt="Project Image" class="active">${creditsHtml}`;
         clearInterval(slideshowInterval);
         slideshowInterval = setInterval(() => {
           currentMediaIndex = (currentMediaIndex + 1) % mediaItems.length;
           showCurrentMedia();
         }, 2500);
-        // Check if the media type is a standard video file (mp4/webm)
       } else if (item.type === 'video' && !item.src.includes("drive.google.com")) {
         const fileExtension = item.src.split('.').pop();
         const mimeType = fileExtension === 'webm' ? 'video/webm' : 'video/mp4';
-        gallery.innerHTML = `<video autoplay muted class="active">
-      <source src="${item.src}" type="${mimeType}">
-      Your browser does not support the video tag.
-    </video>`;
+        gallery.innerHTML = `<video autoplay muted loop playsinline class="active">
+          <source src="${item.src}" type="${mimeType}">
+          Your browser does not support the video tag.
+        </video>${creditsHtml}`;
 
         const videoElement = gallery.querySelector('video');
         videoElement.addEventListener('ended', () => {
@@ -119,26 +117,23 @@ function startSlideshow(index) {
           showCurrentMedia();
         });
         clearInterval(slideshowInterval);
-
-        // Check if the media type is a Google Drive video (iframe embed)
       } else if (item.type === 'google-drive-video') {
         gallery.innerHTML = `
-      <iframe class="google-drive-video active"
-              src="${item.src}" 
-              width="auto" 
-              height="auto"
-              allow="autoplay"
-              frameborder="0"
-              sandbox="allow-top-navigation allow-scripts allow-forms"
-              allowfullscreen>
-      </iframe>`;
+          <iframe class="google-drive-video active"
+                  src="${item.src}"
+                  width="auto"
+                  height="auto"
+                  allow="autoplay"
+                  frameborder="0"
+                  sandbox="allow-top-navigation allow-scripts allow-forms"
+                  allowfullscreen>
+          </iframe>${creditsHtml}`;
         clearInterval(slideshowInterval);
       }
     };
 
     showCurrentMedia();
   } else {
-    console.error(`Media not found for project index: ${index}`);
     gallery.innerHTML = '<p>Preview not available.</p>';
   }
 }
@@ -147,14 +142,14 @@ function startSlideshow(index) {
 function stopSlideshow() {
   clearInterval(slideshowInterval);
 }
-// Add scroll indicator element
+
+// Scroll indicator on work/project pages
 const projectDetails = document.querySelector('.project-details');
 if (projectDetails) {
   const scrollIndicator = document.createElement('div');
   scrollIndicator.className = 'scroll-indicator';
   projectDetails.appendChild(scrollIndicator);
 
-  // Handle scroll event
   projectDetails.addEventListener('scroll', () => {
     const atBottom = projectDetails.scrollHeight - projectDetails.scrollTop === projectDetails.clientHeight;
     projectDetails.classList.toggle('at-bottom', atBottom);
@@ -162,108 +157,170 @@ if (projectDetails) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  const imageGallery = document.getElementById('image-gallery');
-  const projectSection = document.querySelector('.sidebar');
 
-  window.addEventListener('scroll', function () {
-    const projectSectionTop = projectSection.getBoundingClientRect().top;
-    const headerHeight = document.querySelector('.header').offsetHeight;
+  /* --- Custom Cursor (all pages) --- */
+  const cursor = document.createElement('div');
+  cursor.classList.add('custom-cursor');
+  document.body.appendChild(cursor);
 
-    if (projectSectionTop <= headerHeight) {
-      imageGallery.classList.add('fixed');
-    } else {
-      imageGallery.classList.remove('fixed');
-    }
+  cursor.style.left = '-10px';
+  cursor.style.top  = '-10px';
+  cursor.style.opacity = '0';
+
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.opacity = '1';
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top  = e.clientY + 'px';
   });
-});
+  document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; });
+  document.addEventListener('mouseover',  (e) => { if (e.target.tagName === 'IFRAME') cursor.style.opacity = '0'; });
+  document.addEventListener('mousedown',  () => { cursor.classList.add('pressed'); });
+  document.addEventListener('mouseup',    () => { cursor.classList.remove('pressed'); });
 
-document.addEventListener('DOMContentLoaded', function () {
+  /* --- Homepage-only code --- */
   const imageGallery = document.getElementById('gallery-image');
-  let images = [];
+  if (!imageGallery) return;
+
+  let images = []; // { src, title, year, id }
   let slideshowInterval;
 
-  // Fetch projects data and store image paths in an array
+  // Persistent gallery project tag — shows which project the background image belongs to
+  const galleryTag = document.createElement('a');
+  galleryTag.className = 'gallery-project-tag';
+  galleryTag.innerHTML = '<span class="gallery-tag-year"></span><span class="gallery-tag-title"></span>';
+  document.body.appendChild(galleryTag);
+
+  const tagYearEl  = galleryTag.querySelector('.gallery-tag-year');
+  const tagTitleEl = galleryTag.querySelector('.gallery-tag-title');
+
+  let tagTypingTimeout = null;
+
+  // Typewriter effect for gallery title
+  function typeGalleryTitle(element, newText) {
+    if (tagTypingTimeout) clearTimeout(tagTypingTimeout);
+    const typeSpeed  = 28;
+    const eraseSpeed = 18;
+    const current    = element.textContent;
+
+    function erase(len) {
+      if (len === 0) { type(0); return; }
+      element.textContent = current.substring(0, len - 1);
+      tagTypingTimeout = setTimeout(() => erase(len - 1), eraseSpeed);
+    }
+
+    function type(i) {
+      if (i > newText.length) return;
+      element.textContent = newText.substring(0, i);
+      tagTypingTimeout = setTimeout(() => type(i + 1), typeSpeed);
+    }
+
+    if (current === '') {
+      type(0);
+    } else {
+      erase(current.length);
+    }
+  }
+
+  function showRandomImage() {
+    if (images.length === 0) return;
+    const item = images[Math.floor(Math.random() * images.length)];
+    if (imageGallery) imageGallery.innerHTML = `<img src="${item.src}" alt="${item.title}" class="active">`;
+    galleryTag.href = `work.html?id=${item.id}`;
+    tagYearEl.textContent = item.year;
+    typeGalleryTitle(tagTitleEl, item.title);
+  }
+
+  // Fetch projects and collect image entries with metadata
   fetch('projects.json')
     .then(response => response.json())
     .then(data => {
       data.forEach(project => {
         project.media.forEach(mediaItem => {
           if (mediaItem.type === 'image' && !mediaItem.excludeFromIndex) {
-            images.push(mediaItem.src);
+            images.push({ src: mediaItem.src, title: project.title, year: project.year, id: project.id });
           }
         });
       });
 
-      // Start the slideshow
       if (images.length > 0) {
-        let currentIndex = 0;
-
-        function showRandomImage() {
-          currentIndex = Math.floor(Math.random() * images.length);
-          imageGallery.innerHTML = `<img src="${images[currentIndex]}" alt="Slideshow Image" class="active">`;
-        }
-
-        // Show the first random image
         showRandomImage();
-
-        // Change image every 3 seconds
         slideshowInterval = setInterval(showRandomImage, 3000);
       }
     });
 
-  // Function to stop the initial slideshow
-  function stopSlideshow() {
+  function stopBackgroundSlideshow() {
     if (slideshowInterval) {
       clearInterval(slideshowInterval);
       slideshowInterval = null;
     }
   }
 
-  // Add hover event listeners to project elements
+  // Hover events for project list
   const projectList = document.getElementById('project-list');
-  projectList.addEventListener('mouseover', function (event) {
-    if (event.target.closest('.sidebar-item')) {
-      stopSlideshow();
-    }
-  });
+  if (projectList) {
+    projectList.addEventListener('mouseover', function (event) {
+      const item = event.target.closest('.sidebar-item');
+      if (!item) return;
+      if (item.contains(event.relatedTarget)) return;
+      stopBackgroundSlideshow();
+      galleryTag.style.visibility = 'hidden';
+    });
 
-  projectList.addEventListener('mouseout', function (event) {
-    if (event.target.closest('.sidebar-item')) {
-      // Optionally, you can restart the slideshow when the mouse leaves the project
-      // slideshowInterval = setInterval(showRandomImage, 3000);
-    }
-  });
-
-  // Menu toggle functionality
-  const menuToggle = document.getElementById('menu-toggle');
-  const menuItems = document.getElementById('menu-items');
-
-  if (menuToggle && menuItems) {
-    menuToggle.addEventListener('click', function () {
-      const isHidden = menuItems.style.display === 'none';
-      menuItems.style.display = isHidden ? 'block' : 'none';
-      menuToggle.textContent = isHidden ? 'close' : 'menu';
+    projectList.addEventListener('mouseout', function (event) {
+      const item = event.target.closest('.sidebar-item');
+      if (!item) return;
+      if (item.contains(event.relatedTarget)) return;
+      galleryTag.style.visibility = 'visible';
+      showRandomImage();
+      slideshowInterval = setInterval(showRandomImage, 3000);
     });
   }
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-  const cursor = document.createElement('div');
-  cursor.classList.add('custom-cursor');
-  document.body.appendChild(cursor);
+  /* --- Typing Effect for Tags --- */
+  const tags = ["composer", "performer", "new media artist"];
+  const tagIds = ['current-tag', 'current-tag-mobile'];
+  tagIds.forEach(id => {
+    const tagElement = document.getElementById(id);
+    if (!tagElement) return;
 
-  function moveCursor(x, y) {
-    cursor.style.left = x + 'px';
-    cursor.style.top = y + 'px';
-  }
-  document.addEventListener('mousemove', (e) => {
-    moveCursor(e.clientX, e.clientY); 
-  });
+    let tagIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typeSpeed = 30;
+    const holdTime  = 3000;
 
-  document.addEventListener('mousedown', () => {
-    cursor.classList.add('pressed'); 
-  });
-  document.addEventListener('mouseup', () => {
-    cursor.classList.remove('pressed'); 
+    tagElement.textContent = tags[0];
+
+    function typeEffect() {
+      const currentTag = tags[tagIndex];
+
+      if (isDeleting) {
+        tagElement.textContent = currentTag.substring(charIndex);
+        charIndex++;
+        if (charIndex > currentTag.length) {
+          isDeleting = false;
+          tagIndex = (tagIndex + 1) % tags.length;
+          charIndex = 1;
+          setTimeout(typeEffect, 150);
+        } else {
+          setTimeout(typeEffect, typeSpeed);
+        }
+      } else {
+        tagElement.textContent = currentTag.substring(currentTag.length - charIndex);
+        charIndex++;
+        if (charIndex > currentTag.length) {
+          isDeleting = true;
+          charIndex = 1;
+          setTimeout(typeEffect, holdTime);
+        } else {
+          setTimeout(typeEffect, typeSpeed);
+        }
+      }
+    }
+    setTimeout(() => {
+      isDeleting = true;
+      charIndex = 1;
+      typeEffect();
+    }, holdTime);
   });
 });

@@ -14,34 +14,50 @@
 
 <body style="overflow: hidden;">
 
-    <div id="desktop-content">
-        <!-- Main Content -->
-    <div class="header">
-        <div class="column title" style="flex: 1;">tampueduard</div>
-        <div class="row" style="text-align: left; flex: 2;"> 
-            <g>composer &#x25AA;&#xFE0E; performer &#x25AA;&#xFE0E; new media artist</g>
+    <div class="desktop">
+        <div class="header">
+            <div class="column title">tampueduard</div>
+            <div class="row header-tags">
+                <span id="current-tag"></span>
+            </div>
+            <div class="row header-nav">
+                <a href="index.html">home</a>
+            </div>
+            <div class="row header-nav">
+                <a href="about.html">about</a>
+            </div>
+            <div class="row header-nav">
+                <a href="contact.html">contact</a>
+            </div>
         </div>
-        <div class="row" style="text-align: left; flex: 3;"></div>
-        <div class="row" style="text-align: right; justify-content: right;">
-            <a href="index.html">home</a> <br>
-            <a href="about.html">about</a> <br>
-            <a href="contact.html">contact</a>
+    </div>
+    <div class="mobile">
+        <div class="header">
+            <div class="column title" style="flex: 2;">tampueduard</div>
+            <div class="row header-nav-mobile">
+                <a href="index.html">home</a>
+                <div class="header-nav-spacer"> </div>
+                <a href="about.html">about</a>
+                <div class="header-nav-spacer"> </div>
+                <a href="contact.html">contact</a>
+            </div>
+        </div>
+        <g id="tags-mobile" class="sub-header">
+            <span id="current-tag-mobile"></span>
+        </g>
+    </div>
+
+    <div class="main-content">
+        <div class="sidebar">
+            <div class="main-porjects"></div>
+            <div id="project-list"></div>
+            <div id="image-gallery">
+                <div class="image-container" id="gallery-image"></div>
+            </div>
         </div>
     </div>
 
-        <div class="main-content" >
-            <!-- Sidebar for projects -->
-            <div class="sidebar">
-                <div class="main-porjects"></div>
-                <div id="project-list"></div>
-                <!-- Image Gallery -->
-                <div id="image-gallery">
-                    <div class="image-container" id="gallery-image"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row footer">© 2025</div>
-    </div>
+    <div class="row footer" style="font-weight: 400;">© 2026</div>
 
 </body>
 

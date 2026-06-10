@@ -12,36 +12,141 @@
     <script src="js/script.js"></script>
 </head>
 
-<body>
-    <!-- Main Content -->
-    <div class="header" style="display: flex; justify-content: left; text-align: left;">
-        <div class="row" style="flex: 2;">tampueduard</div>
-        <div class="column" style="text-align: right; flex: 0.3;"><a href="index.html">home</a></div>
+<body style="overflow: auto;">
+
+    <div class="desktop">
+        <div class="header">
+            <div class="column title">tampueduard</div>
+            <div class="row header-tags"></div>
+            <div class="row header-nav">
+                <a href="index.html">home</a>
+            </div>
+            <div class="row header-nav">
+                <a href="about.html">about</a>
+            </div>
+            <div class="row header-nav">
+                <a href="contact.html">contact</a>
+            </div>
+        </div>
+    </div>
+    <div class="mobile">
+        <div class="header">
+            <div class="column title" style="flex: 2;">tampueduard</div>
+            <div class="row header-nav-mobile">
+                <a href="index.html">home</a>
+                <div class="header-nav-spacer"> </div>
+                <a href="about.html">about</a>
+                <div class="header-nav-spacer"> </div>
+                <a href="contact.html">contact</a>
+            </div>
+        </div>
     </div>
 
     <div class="main-content">
         <div class="side-image">
-            <img src="images/eduardtampu_2025.png" alt="Portrait of Eduard Tampu" class="portrait">
+            <img src="images/portrait_2026.jpg" alt="Portrait of Eduard Tampu" class="portrait">
         </div>
         <div id="about-content">
-            Loading /... 
-        </div>        
+            Loading /...
+        </div>
     </div>
-    <div class="footer" style="background-color: white; padding-top: 2%;">© 2025</div>
-    <!-- <a href="mailto:tampueduard@gmail.com" class="footer" style="justify-content: left; text-align: left;"> email &#x25AA;&#xFE0E; tampueduard [at] gmail [dot] com</a>   -->
 
+    <section id="cv"></section>
+
+    <div class="footer">© 2026</div>
 
     <script>
         fetch('content/about.md')
             .then(response => response.text())
             .then(markdown => {
                 document.getElementById('about-content').innerHTML = marked.parse(markdown);
-            
             })
             .catch(error => {
                 console.error('Error loading Markdown file:', error);
                 document.getElementById('about-content').textContent = 'Failed to load content.';
             });
+
+        fetch('content/cv.json')
+            .then(r => r.json())
+            .then(cv => {
+                const el = document.getElementById('cv');
+                if (!el) return;
+
+                // Timeline rows
+                const tlAbove = cv.timeline.map(t => t.above
+                    ? `<div class="tl-cell tl-filled">${t.above}${t.aboveSub ? `<br><span>${t.aboveSub}</span>` : ''}</div>`
+                    : `<div class="tl-cell"></div>`
+                ).join('');
+
+                const tlAxis = cv.timeline.map(t =>
+                    `<div class="tl-yr">${t.year}</div>`
+                ).join('');
+
+                const tlBelow = cv.timeline.map(t => t.below
+                    ? `<div class="tl-cell tl-filled">${t.below}${t.belowSub ? `<br><span>${t.belowSub}</span>` : ''}</div>`
+                    : `<div class="tl-cell"></div>`
+                ).join('');
+
+                // Entry helper
+                const entry = e => `
+                    <div class="cv-entry">
+                        <div class="cv-entry-head">
+                            <span class="cv-entry-title">${e.title}</span>
+                            <span class="cv-entry-date">${e.date}</span>
+                        </div>
+                        <div class="cv-entry-sub">${e.sub}</div>
+                    </div>`;
+
+                // Publications
+                const pubs = cv.publications.map(p => {
+                    const title = p.link
+                        ? `<a href="${p.link}" target="_blank"><em>${p.title}</em></a>`
+                        : `<em>${p.title}</em>`;
+                    return `
+                    <div class="cv-pub">
+                        <div class="cv-entry-head">
+                            <span>${title} — ${p.description}</span>
+                            <span class="cv-entry-date">${p.venue}</span>
+                        </div>
+                    </div>`;
+                }).join('');
+
+                // Toolkit
+                const toolkit = Object.entries(cv.toolkit).map(([k, v]) =>
+                    `<p><span class="cv-tk-label">${k}</span>${v}</p>`
+                ).join('');
+
+                el.innerHTML = `
+                    <div class="cv-tl-wrap">
+                        <div class="cv-tl">
+                            <div class="cv-tl-above">${tlAbove}</div>
+                            <div class="cv-tl-axis">${tlAxis}</div>
+                            <div class="cv-tl-below">${tlBelow}</div>
+                        </div>
+                    </div>
+                    <div class="cv-columns">
+                        <div class="cv-col">
+                            <h3 class="cv-section-title">education</h3>
+                            ${cv.education.map(entry).join('')}
+                        </div>
+                        <div class="cv-col">
+                            <h3 class="cv-section-title">experience</h3>
+                            ${cv.experience.map(entry).join('')}
+                        </div>
+                    </div>
+                    <div class="cv-section">
+                        <h3 class="cv-section-title">publications</h3>
+                        ${pubs}
+                    </div>
+                    <div class="cv-section cv-toolkit">
+                        <h3 class="cv-section-title">toolkit</h3>
+                        ${toolkit}
+                    </div>
+                    <div class="cv-download">
+                        <a href="${cv.pdf}" target="_blank">download cv →</a>
+                    </div>`;
+            })
+            .catch(err => console.error('Error loading CV:', err));
     </script>
 </body>
 

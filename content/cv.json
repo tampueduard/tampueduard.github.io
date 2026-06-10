@@ -1,0 +1,73 @@
+{
+  "timeline": [
+    { "year": "2017", "above": "BA Classical Saxophone", "aboveSub": "Conservatory C. Pollini, Padova", "below": null, "belowSub": null },
+    { "year": "2022", "above": "MA Sound in New Media", "aboveSub": "Aalto University", "below": null, "belowSub": null },
+    { "year": "2023", "above": null, "aboveSub": null, "below": "Research Visit <br> Project MINERVA", "belowSub": "UrbNet Aarhus University" },
+    { "year": "2024", "above": null, "aboveSub": null, "below": "Artistic Research <br> on Active Acoustics", "belowSub": "Aalto Acoustics Lab" },
+    { "year": "2024", "above": null, "aboveSub": null, "below": "Nova Media Studio", "belowSub": "Co-Founder" },
+    { "year": "2025", "above": null, "aboveSub": null, "below": "Artistic Research <br> SonicMove", "belowSub": "Aalto SOPI Research Group" },
+    { "year": "2026", "above": "PhD Candidate", "aboveSub": "Aalto University (interrupted)", "below": null, "belowSub": null }
+  ],
+  "education": [
+    {
+      "title": "PhD Candidate · Dept. of Art and Media",
+      "date": "2026 – interrupted",
+      "sub": "Aalto University, Helsinki"
+    },
+    {
+      "title": "MA Sound in New Media",
+      "date": "2022 – 2025",
+      "sub": "Aalto University, Helsinki · GPA 4.71/5"
+    },
+    {
+      "title": "BA Classical Saxophone",
+      "date": "2017 – 2020",
+      "sub": "Conservatory \"C. Pollini\", Padova · 110 cum laude/110"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Audio Designer & Max/MSP Developer · SOPI / SonicMove",
+      "date": "May – Dec 2025",
+      "sub": "Aalto University, Helsinki"
+    },
+    {
+      "title": "Co-founder & AV Artist · Nova Media Studio",
+      "date": "2024 – present",
+      "sub": "Turin, IT"
+    },
+    {
+      "title": "Research Assistant · Acoustics Lab",
+      "date": "Apr – Dec 2024",
+      "sub": "Aalto University, Helsinki · MA Thesis"
+    },
+    {
+      "title": "Research Assistant · Dept. of Art and Media",
+      "date": "Nov 2023 – Oct 2024",
+      "sub": "Aalto University, Helsinki"
+    },
+    {
+      "title": "Research Visit · Project MINERVA",
+      "date": "Sep – Nov 2023",
+      "sub": "UrbNet – Aarhus University"
+    }
+  ],
+  "publications": [
+    {
+      "title": "Sensing the Invisible",
+      "description": "architectural approaches to sonifying microbial life in Icelandic Turf Houses through VR",
+      "venue": "eCAADe 2025, Ankara"
+    },
+    {
+      "title": "Deep Learning with Audio",
+      "description": "an explorative syllabus for music composition and production",
+      "venue": "ICAI & Music 2023, Sussex"
+    }
+  ],
+  "toolkit": {
+    "Tools": "Ableton Live · Max/MSP · TouchDesigner · Resolume Arena · Reaper · Cinema4D · Blender · Adobe Creative Suite",
+    "Skills": "Sound Design · Audio Production · Audio Engineering · Live Performance · Interaction Design · Visual Design · Graphic Design · Video Production · Photography · System Design · Artistic Direction · AV Equipment Management · Technical Coordination · Programming (JS, Python)",
+    "Languages": "Italian (bilingual) · English (bilingual) · Romanian (basic)"
+  },
+  "pdf": "content/cv_2026.pdf"
+}

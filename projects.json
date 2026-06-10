@@ -379,31 +379,36 @@
         "contentFile": "content/thereisnotenoughtime.md",
         "mainMedia": [
             {
-                "type": "youtube",
-                "src": "https://www.youtube.com/embed/6z613kDzPEo?si=6FqWEAuFR_SlshyG"
+                "type": "google-drive-video",
+                "src": "https://drive.google.com/file/d/1z9SrJttsLfdlZ7X4rhbGgzF5yguM-dEW/preview"
             }
         ],
         "media": [
-            {
-                "type": "video",
-                "src": "images/thereisnotenoughtime/007.webm"
-            },
             {   
                 "type": "image",
-                "src": "images/thereisnotenoughtime/frame_1.jpeg"
+                "src": "images/thereisnotenoughtime/frame_1.webp"
             },
             {
                 "type": "image",
-                "src": "images/thereisnotenoughtime/frame_2.jpeg"
+                "src": "images/thereisnotenoughtime/frame_2.webp"
+            },
+            {
+                "type": "video",
+                "src": "images/thereisnotenoughtime/007.mp4"
             },
             {
                 "type": "image",
-                "src": "images/thereisnotenoughtime/frame_3.jpeg"
+                "src": "images/thereisnotenoughtime/frame_3.webp"
             },
             {
                 "type": "image",
-                "src": "images/thereisnotenoughtime/frame_4.jpeg"
+                "src": "images/thereisnotenoughtime/frame_4.webp"
+            },
+                        {
+                "type": "image",
+                "src": "images/thereisnotenoughtime/map.png"
             }
+            
         ]
     },
     {
