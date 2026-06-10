@@ -1,0 +1,9 @@
+Sonic Move is a EU NextGenerationEU and Business Finland co-research project developing computational tools for the creative sonification of human movement, in collaboration between Aalto University, VTT, the University of Eastern Finland, Taustamarkkinat BGMT Oy, and Genelec Oy.
+
+The core of the work is a sonification toolkit that maps dancer movement to sound synthesis parameters in real time. The system draws on MFCC feature extraction, FFT analysis, inter-body-part correlations, and phase vocoder techniques to establish nuanced, dynamic relationships between bodily gesture and auditory output.
+
+I joined the SOPI Research Group in May 2025 as Audio Designer and Max/MSP Developer, contributing to the project through December 2025. My work focused on the design and implementation of real-time sensor-driven audio synthesis, integrating motion capture data from Xsens suits and depth-camera input through Max/MSP, PureData, and custom JavaScript and Python frameworks. I also developed the signal analysis pipelines — FFT, MFCC, correlation, and feature-mapping — that connected movement data to sound in multimodal performance environments.
+
+Alongside the performance work, I developed a preliminary computer vision and sonification system for hand rehabilitation, enabling posture, gesture, and movement analysis for therapeutic applications.
+
+The culminating sessions in September 2025 brought together three professional dancers — Heidi Tiainen, Hanna Pajala-Assefa, and Aino Strandberg — to explore the parameter space of the toolkit through collaborative artistic experiment. Rather than prescribing fixed mappings, the sessions were designed to let emergent sonic textures arise from the dancers' movement choices, revealing how subtle variations in gesture and spatial relationship could shape the auditory outcome.

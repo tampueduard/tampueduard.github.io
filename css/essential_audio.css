@@ -42,12 +42,12 @@ div.essential_audio > div:nth-child(1) div:after {
 
 /* 2.a) The Player Button – Off */
 div.essential_audio > div:nth-child(1) div.off:after {
-	content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><polygon fill='%23FFF' points='10,6.9 10,23.1 24,15' /></svg>");
+	content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAzMCAzMCc+PHBvbHlnb24gZmlsbD0nI0ZGRicgcG9pbnRzPScxMCw2LjkgMTAsMjMuMSAyNCwxNScgLz48L3N2Zz4=");
 }
 
 /* 2.b) The Player Button – Loading */
 div.essential_audio > div:nth-child(1) div.load:after {
-	content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><circle opacity='0.64' fill='%23FFFFFF' cx='6.5' cy='18.5' r='2'/><circle opacity='0.76' fill='%23FFFFFF' cx='6.5' cy='11.5' r='2'/><circle opacity='0.88' fill='%23FFFFFF' cx='11.5' cy='6.5' r='2'/><circle fill='%23FFFFFF' cx='18.5' cy='6.5' r='2'/><circle opacity='0.16' fill='%23FFFFFF' cx='23.5' cy='11.5' r='2'/><circle opacity='0.28' fill='%23FFFFFF' cx='23.5' cy='18.5' r='2'/><circle opacity='0.4' fill='%23FFFFFF' cx='18.5' cy='23.4' r='2'/><circle opacity='0.52' fill='%23FFFFFF' cx='11.5' cy='23.4' r='2'/></svg>");
+	content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAzMCAzMCc+PGNpcmNsZSBvcGFjaXR5PScwLjY0JyBmaWxsPScjRkZGRkZGJyBjeD0nNi41JyBjeT0nMTguNScgcj0nMicvPjxjaXJjbGUgb3BhY2l0eT0nMC43NicgZmlsbD0nI0ZGRkZGRicgY3g9JzYuNScgY3k9JzExLjUnIHI9JzInLz48Y2lyY2xlIG9wYWNpdHk9JzAuODgnIGZpbGw9JyNGRkZGRkYnIGN4PScxMS41JyBjeT0nNi41JyByPScyJy8+PGNpcmNsZSBmaWxsPScjRkZGRkZGJyBjeD0nMTguNScgY3k9JzYuNScgcj0nMicvPjxjaXJjbGUgb3BhY2l0eT0nMC4xNicgZmlsbD0nI0ZGRkZGRicgY3g9JzIzLjUnIGN5PScxMS41JyByPScyJy8+PGNpcmNsZSBvcGFjaXR5PScwLjI4JyBmaWxsPScjRkZGRkZGJyBjeD0nMjMuNScgY3k9JzE4LjUnIHI9JzInLz48Y2lyY2xlIG9wYWNpdHk9JzAuNCcgZmlsbD0nI0ZGRkZGRicgY3g9JzE4LjUnIGN5PScyMy40JyByPScyJy8+PGNpcmNsZSBvcGFjaXR5PScwLjUyJyBmaWxsPScjRkZGRkZGJyBjeD0nMTEuNScgY3k9JzIzLjQnIHI9JzInLz48L3N2Zz4=");
 	animation: audio_load_rotate 1s infinite linear;
 }
 @keyframes audio_load_rotate {
@@ -60,7 +60,7 @@ div.essential_audio > div:nth-child(1) div.play {
 	background-color: #000!important;
 }
 div.essential_audio > div:nth-child(1) div.play:after {
-	content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><rect fill='%23FFF' x='17' y='8' width='3' height='14' /><rect fill='%23FFF' x='10' y='8' width='3' height='14' /></svg>");
+	content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAzMCAzMCc+PHJlY3QgZmlsbD0nI0ZGRicgeD0nMTcnIHk9JzgnIHdpZHRoPSczJyBoZWlnaHQ9JzE0JyAvPjxyZWN0IGZpbGw9JyNGRkYnIHg9JzEwJyB5PSc4JyB3aWR0aD0nMycgaGVpZ2h0PScxNCcgLz48L3N2Zz4=");
 }
 
 /* 2.d) The Player Button – Dragging */
@@ -76,7 +76,7 @@ div.essential_audio > div:nth-child(1) div.error {
 	background-color: rgba(0,0,0,0.35)!important;
 }
 div.essential_audio > div:nth-child(1) div.error:after {
-	content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path fill='%23FFF' d='M13.9,18.6c0-0.3,0-0.5,0-0.9c0-1.6,0.6-2.9,2.1-3.9l1.1-0.8c0.9-0.6,1.3-1.5,1.3-2.4c0-1.5-1-2.8-3-2.8c-2.2,0-3.1,1.6-3.1,3.2c0,0.2,0,0.4,0,0.5L10,11.9c-0.1-0.3-0.1-0.8-0.1-1.2c0-2.3,1.7-5.1,5.5-5.1c3.5,0,5.5,2.5,5.5,5c0,2-1.1,3.4-2.5,4.3l-1.2,0.8c-0.8,0.5-1.1,1.4-1.1,2.4c0,0.1,0,0.2,0,0.5H13.9z'/><path fill='%23FFF' d='M15,20.8c1,0,1.8,0.8,1.8,1.8S16,24.4,15,24.4c-1,0-1.8-0.8-1.8-1.8S14,20.8,15,20.8z'/></svg>");
+	content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAzMCAzMCc+PHBhdGggZmlsbD0nI0ZGRicgZD0nTTEzLjksMTguNmMwLTAuMywwLTAuNSwwLTAuOWMwLTEuNiwwLjYtMi45LDIuMS0zLjlsMS4xLTAuOGMwLjktMC42LDEuMy0xLjUsMS4zLTIuNGMwLTEuNS0xLTIuOC0zLTIuOGMtMi4yLDAtMy4xLDEuNi0zLjEsMy4yYzAsMC4yLDAsMC40LDAsMC41TDEwLDExLjljLTAuMS0wLjMtMC4xLTAuOC0wLjEtMS4yYzAtMi4zLDEuNy01LjEsNS41LTUuMWMzLjUsMCw1LjUsMi41LDUuNSw1YzAsMi0xLjEsMy40LTIuNSw0LjNsLTEuMiwwLjhjLTAuOCwwLjUtMS4xLDEuNC0xLjEsMi40YzAsMC4xLDAsMC4yLDAsMC41SDEzLjl6Jy8+PHBhdGggZmlsbD0nI0ZGRicgZD0nTTE1LDIwLjhjMSwwLDEuOCwwLjgsMS44LDEuOFMxNiwyNC40LDE1LDI0LjRjLTEsMC0xLjgtMC44LTEuOC0xLjhTMTQsMjAuOCwxNSwyMC44eicvPjwvc3ZnPg==");
 }
 
 

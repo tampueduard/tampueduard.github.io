@@ -80,62 +80,73 @@ function removeHighlight(year) {
 
 function startSlideshow(index) {
   const gallery = document.getElementById('gallery-image');
+  const project = projectsData[index];
+  if (!project) return;
 
-  if (projectsData[index] && projectsData[index].media) {
-    let currentMediaIndex = 0;
-    const mediaItems = projectsData[index].media;
+  // Collect previewable items: media first, fall back to mainMedia
+  const previewable = m =>
+    m.type === 'image' ||
+    m.type === 'vimeo' ||
+    (m.type === 'video' && !m.src.includes('drive.google.com'));
 
-    const showCurrentMedia = () => {
-      const item = mediaItems[currentMediaIndex];
-      let creditsHtml = '';
-      if (item.credits) {
-        if (item.link) {
-          creditsHtml = `<div class="slideshow-credits" style="pointer-events: auto;"><a href="${item.link}" target="_blank">${item.credits}</a></div>`;
-        } else {
-          creditsHtml = `<div class="slideshow-credits">${item.credits}</div>`;
-        }
-      }
-
-      if (item.type === 'image') {
-        gallery.innerHTML = `<img src="${item.src}" alt="Project Image" class="active">${creditsHtml}`;
-        clearInterval(slideshowInterval);
-        slideshowInterval = setInterval(() => {
-          currentMediaIndex = (currentMediaIndex + 1) % mediaItems.length;
-          showCurrentMedia();
-        }, 2500);
-      } else if (item.type === 'video' && !item.src.includes("drive.google.com")) {
-        const fileExtension = item.src.split('.').pop();
-        const mimeType = fileExtension === 'webm' ? 'video/webm' : 'video/mp4';
-        gallery.innerHTML = `<video autoplay muted loop playsinline class="active">
-          <source src="${item.src}" type="${mimeType}">
-          Your browser does not support the video tag.
-        </video>${creditsHtml}`;
-
-        const videoElement = gallery.querySelector('video');
-        videoElement.addEventListener('ended', () => {
-          currentMediaIndex = (currentMediaIndex + 1) % mediaItems.length;
-          showCurrentMedia();
-        });
-        clearInterval(slideshowInterval);
-      } else if (item.type === 'google-drive-video') {
-        gallery.innerHTML = `
-          <iframe class="google-drive-video active"
-                  src="${item.src}"
-                  width="auto"
-                  height="auto"
-                  allow="autoplay"
-                  frameborder="0"
-                  sandbox="allow-top-navigation allow-scripts allow-forms"
-                  allowfullscreen>
-          </iframe>${creditsHtml}`;
-        clearInterval(slideshowInterval);
-      }
-    };
-
-    showCurrentMedia();
-  } else {
-    gallery.innerHTML = '<p>Preview not available.</p>';
+  let items = (project.media || []).filter(previewable);
+  if (items.length === 0) {
+    items = (project.mainMedia || []).filter(previewable);
   }
+
+  if (items.length === 0) {
+    gallery.innerHTML = '';
+    return;
+  }
+
+  let currentMediaIndex = 0;
+
+  const showCurrentMedia = () => {
+    const item = items[currentMediaIndex];
+    const creditsHtml = item.credits
+      ? `<div class="slideshow-credits" style="pointer-events:auto">${item.link ? `<a href="${item.link}" target="_blank">${item.credits}</a>` : item.credits}</div>`
+      : '';
+
+    if (item.type === 'image') {
+      gallery.innerHTML = `<img src="${item.src}" alt="Project Image" class="active">${creditsHtml}`;
+      clearInterval(slideshowInterval);
+      slideshowInterval = setInterval(() => {
+        currentMediaIndex = (currentMediaIndex + 1) % items.length;
+        showCurrentMedia();
+      }, 2500);
+
+    } else if (item.type === 'vimeo') {
+      // Use Vimeo thumbnail as a static preview image
+      gallery.innerHTML = `<img src="https://vumbnail.com/${item.src}.jpg" alt="Project Image" class="active">${creditsHtml}`;
+      clearInterval(slideshowInterval);
+      slideshowInterval = setInterval(() => {
+        currentMediaIndex = (currentMediaIndex + 1) % items.length;
+        showCurrentMedia();
+      }, 2500);
+
+    } else if (item.type === 'video') {
+      const mimeType = item.src.endsWith('.webm') ? 'video/webm' : 'video/mp4';
+      gallery.innerHTML = `<video autoplay muted loop playsinline class="active">
+        <source src="${item.src}" type="${mimeType}">
+      </video>${creditsHtml}`;
+      const videoEl = gallery.querySelector('video');
+      videoEl.addEventListener('ended', () => {
+        currentMediaIndex = (currentMediaIndex + 1) % items.length;
+        showCurrentMedia();
+      });
+      clearInterval(slideshowInterval);
+
+    } else if (item.type === 'google-drive-video') {
+      gallery.innerHTML = `<iframe class="google-drive-video active"
+        src="${item.src}" width="auto" height="auto"
+        allow="autoplay" frameborder="0"
+        sandbox="allow-top-navigation allow-scripts allow-forms"
+        allowfullscreen></iframe>${creditsHtml}`;
+      clearInterval(slideshowInterval);
+    }
+  };
+
+  showCurrentMedia();
 }
 
 // Stop the slideshow
@@ -235,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(response => response.json())
     .then(data => {
       data.forEach(project => {
-        project.media.forEach(mediaItem => {
+        [...(project.media || []), ...(project.mainMedia || [])].forEach(mediaItem => {
           if (mediaItem.type === 'image' && !mediaItem.excludeFromIndex) {
             images.push({ src: mediaItem.src, title: project.title, year: project.year, id: project.id });
           }

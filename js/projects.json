@@ -1,5 +1,40 @@
 [
     {
+        "id": "sonicmove",
+        "title": "Sonic Move",
+        "type": "Max/MSP Developer",
+        "typeDetails": "Audio Design & Max/MSP Development",
+        "year": "2025",
+        "month": "9",
+        "place": "SOPI | Aalto University, Helsinki",
+        "link": "https://sopi.aalto.fi/sonicmove.html",
+        "contentFile": "content/sonicmove.md",
+        "mainMedia": [
+            {
+                "type": "image",
+                "src": "images/sonicmove/preliminary_score.png"
+            }
+        ],
+        "media": [
+            {
+                "type": "vimeo",
+                "src": "1125192641"
+            },
+            {
+                "type": "vimeo",
+                "src": "1125427154"
+            },
+            {
+                "type": "vimeo",
+                "src": "1126823577"
+            },
+            {
+                "type": "image",
+                "src": "images/sonicmove/preliminary_score.png"
+            }
+        ]
+    },
+    {
         "id": "halfway",
         "title": "Halfway",
         "type": "Music Production",
@@ -168,14 +203,14 @@
         "contentFile": "content/venaria.md",
         "mainMedia": [
             {
-                "type": "google-drive-video",
-                "src": "https://drive.google.com/file/d/1cdq7WcFC8LwtJWlF1YLvbqr0BSs9juX5/preview"
+                "type": "video",
+                "src": "images/venaria/venaria.mp4"
             }
         ],
         "media": [
             {
                 "type": "video",
-                "src": "https://github.com/tampueduard/tampueduard.github.io/raw/refs/heads/main/images/venaria/venaria_withmusic.mp4"
+                "src": "images/venaria/venaria.mp4"
             }
         ]
     },
@@ -443,30 +478,46 @@
         "type": "Sound Design",
         "year": "2025",
         "contentFile": "content/vk2025.md",
+        "mainMedia": [
+            {
+                "type": "image",
+                "src": "images/vk25/vk25.webp"
+            }
+        ],
         "media": [
             {
-                "type": "video",
-                "src": "images/vk25/vk25_ai.mp4"
+                "type": "audio",
+                "src": "images/vk25/VK25_20250429_generalidea.mp3",
+                "label": "First Idea"
             },
             {
-                "type": "video",
-                "src": "images/vk25/vk25_complexity.mp4"
+                "type": "vimeo",
+                "src": "1147314001",
+                "startTime": 0,
+                "endTime": 20
             },
             {
-                "type": "video",
-                "src": "images/vk25/vk25_nature.mp4"
+                "type": "vimeo",
+                "src": "1147301704",
+                "startTime": 0,
+                "endTime": 20
             },
             {
-                "type": "video",
-                "src": "images/vk25/vk25_law.mp4"
+                "type": "vimeo",
+                "src": "1147305836",
+                "startTime": 0,
+                "endTime": 20
             },
             {
-                "type": "video",
-                "src": "images/vk25/vk25_brakemusic.mp4"
+                "type": "vimeo",
+                "src": "1147310824",
+                "startTime": 0,
+                "endTime": 20
             },
             {
-                "type": "video",
-                "src": "images/vk25/vk25_firstideas.mp4"
+                "type": "audio",
+                "src": "images/vk25/VK25_brakemusic_loop.mp3",
+                "label": "Brake Music"
             }
         ]
     }

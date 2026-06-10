@@ -554,7 +554,6 @@ video {
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
-  background-color: #f5f5f5;
 }
 
 .responsive-media-container img,
@@ -665,6 +664,103 @@ video {
   object-fit: contain;
   pointer-events: none;
   transition: opacity 0.16s ease;
+}
+
+#lb-vimeo {
+  width: min(90vw, calc(90vh * 16 / 9));
+  height: min(90vh, calc(90vw * 9 / 16));
+  pointer-events: auto;
+  border: none;
+}
+
+/* ── Audio Player ── */
+.audio-wrap {
+  padding: 1.1rem 1.4rem 1.5rem;
+  background: var(--fg);
+  border-radius: 2px;
+  transform: none !important;
+  cursor: default;
+}
+
+.audio-label {
+  font-size: var(--font-size-small);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bg);
+  margin-bottom: 1.1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ap-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ap-btn {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg);
+  padding: 0;
+  padding-left: 2px; /* optical centre for play triangle */
+}
+
+.ap-btn.paused { padding-left: 0; } /* no offset needed for pause bars */
+
+.ap-track {
+  flex: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  position: relative;
+}
+
+.ap-fill {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0%;
+  background: var(--accent);
+  pointer-events: none;
+}
+
+.ap-time {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.45);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Lightbox audio — centred, above lb-zones (z-index 2) and lb-bar (z-index 3) */
+.lb-audio-wrap {
+  position: relative;
+  z-index: 4;
+  width: min(500px, 88vw);
+  flex-direction: column;
+}
+
+.audio-wrap-large {
+  padding: 2rem 2.4rem 2.4rem;
+}
+
+.audio-wrap-large .audio-label {
+  font-size: var(--font-size-body);
+  margin-bottom: 1.6rem;
+}
+
+.audio-wrap-large .ap-btn {
+  width: 36px;
+  height: 36px;
 }
 
 .lb-bar {
