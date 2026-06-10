@@ -1,0 +1,5 @@
+# Font files — served via GitHub Actions from private repo at deploy time
+font/
+
+# macOS
+.DS_Store
